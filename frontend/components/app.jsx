@@ -4,10 +4,8 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LandingPage from './landing/landing_page';
 import MainPage from './main/main_page';
-<<<<<<< HEAD
-=======
 import SignupFormContainer from './landing/signup_form_container';
->>>>>>> Auth
+
 
 
 const App = () => (
@@ -15,10 +13,7 @@ const App = () => (
     <h1>Testing</h1>
     <Switch>
       <AuthRoute exact path="/welcome" component={LandingPage}/>
-<<<<<<< HEAD
-=======
       <AuthRoute exact path="/signup" component={SignupFormContainer}/>
->>>>>>> Auth
       <ProtectedRoute path="/" component={MainPage}/>
     </Switch>
   </div>

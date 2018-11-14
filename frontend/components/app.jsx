@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LandingPage from './landing/landing_page';
 import MainPage from './main/main_page';
 import SignupFormContainer from './landing/signup_form_container';
+import LoginFormContainer from './landing/login_form_container';
 
 
 
@@ -14,6 +15,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/welcome" component={LandingPage}/>
       <AuthRoute exact path="/signup" component={SignupFormContainer}/>
+      <AuthRoute exact path="/login" component={LoginFormContainer}/>
       <ProtectedRoute path="/" component={MainPage}/>
     </Switch>
   </div>

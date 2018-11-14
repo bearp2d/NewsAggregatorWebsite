@@ -44,12 +44,9 @@ class User < ApplicationRecord
     password_digest_obj.is_password?(password)
   end
 
-  private
-
   def delete_session!(current_session_token)
     old_session = Session.find_by(session_token: current_session_token)
     old_session.destroy! if old_session
-    session[:session_token] = nil
   end
 
   def new_session!
@@ -58,6 +55,8 @@ class User < ApplicationRecord
       session_token: generate_session_token)
     new_session.session_token
   end
+
+  private
 
   def generate_session_token
     SecureRandom.urlsafe_base64

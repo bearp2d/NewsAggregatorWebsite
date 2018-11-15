@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_141053) do
+ActiveRecord::Schema.define(version: 2018_11_15_154841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feed_sources", force: :cascade do |t|
+    t.integer "feed_id", null: false
+    t.integer "source_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id", "source_id"], name: "index_feed_sources_on_feed_id_and_source_id", unique: true
+  end
 
   create_table "feeds", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,6 +35,14 @@ ActiveRecord::Schema.define(version: 2018_11_14_141053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["session_token"], name: "index_sessions_on_session_token"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "source_name", null: false
+    t.string "source_logo_url"
+    t.text "source_description"
+    t.string "source_url", null: false
+    t.index ["source_name"], name: "index_sources_on_source_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

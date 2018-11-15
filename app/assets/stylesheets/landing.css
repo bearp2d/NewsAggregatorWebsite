@@ -1,0 +1,110 @@
+/* LandingPage */
+
+section > * {
+  margin: auto;
+  width: 950px;
+}
+
+#welcome-page {
+}
+
+
+.gray-background {
+  background-color: rgb(242, 242, 242);
+  width: 100%;
+  height: 797px;
+}
+
+.eggshell-background {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 797px;
+}
+
+.title {
+  color: #333333;
+}
+
+.description {
+  color: #757575;
+}
+
+/* header */
+
+
+#header * {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#header header {
+  padding-top: 40px;
+  margin-top: 0;
+}
+
+#header header h1 {
+    font-size: 40px;
+}
+
+#header header span {
+    font-size: 20px;
+}
+
+#signup-button {
+  display: flex;
+  height: 50px;
+  width: 250px;
+  border-radius: 5px;
+
+  background-color: rgb(0, 182, 57);
+  color: rgb(242, 242, 242);
+  font-size: 13px;
+  font-weight: 550;
+
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup-button:hover {
+  cursor: pointer;
+}
+
+img[alt="Screenshot"] {
+ width: 100%;
+ box-shadow: 5px 5px 10px lightgray;
+}
+
+/* all features */
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid div[id^="block-"] {
+  display: block;
+  width: 285px;
+  height: 210px;
+
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* feature-personalizatio */
+
+#feature-personalization header {
+  padding-top: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* feature-integration */
+
+#feature-integration header {
+  padding-top: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

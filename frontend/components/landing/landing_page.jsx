@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LandingPage = () => (
+const LandingPage = ({ openModal }) => (
   <main id="welcome-page">
     <section id="header" className="gray-background">
 
@@ -9,9 +9,9 @@ const LandingPage = () => (
         <h1 className="title">BE IN THE KNOW</h1>
         <span className="description">Keep up with all the topics that matter to you.
           <br/>All in one place.</span>
-        <Link to="/signup" id="sign-up-button">
+        <button id="signup-button" onClick={() => openModal('signup')}>
           GET STARTED FOR FREE
-        </Link>
+        </button>
       </header>
 
       <div id="screenshot">

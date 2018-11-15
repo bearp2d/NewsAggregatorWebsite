@@ -16,8 +16,12 @@ class Feed < ApplicationRecord
     foreign_key: :user_id,
     class_name: :User
 
-  # has_many :feed_sources,
-  #   primary_key: :id,
-  #   foreign_key: :feed_id,
-  #   class_name: :FeedSource
+  has_many :feed_sources,
+    primary_key: :id,
+    foreign_key: :feed_id,
+    class_name: :FeedSource
+
+  has_many :sources,
+    through: :feed_sources,
+    source: :source
 end

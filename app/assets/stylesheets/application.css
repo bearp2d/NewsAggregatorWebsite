@@ -21,72 +21,51 @@ body {
   font-weight: 325;
 }
 
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* SessionForm(login/signup) */
 
-form {
+#session-form {
   height: 400px;
-  width: 800px;
+  width: 400px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 5px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
-
-/* LandingPage */
-
-section > * {
-  margin: auto;
-  width: 950px;
+#session-form button {
+  width: 100px;
 }
 
-#welcome-page {
+#session-form input {
+  height: 30px;
+  width: 300px;
+
+  box-sizing: border-box;
 }
 
-
-.gray-background {
-  background-color: rgb(242, 242, 242);
-  width: 100%;
-  height: 797px;
-}
-
-.eggshell-background {
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 797px;
-}
-
-.title {
-  color: #333333;
-}
-
-.description {
-  color: #757575;
-}
-
-/* header */
-
-
-#header * {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-#header header {
-  padding-top: 40px;
-}
-
-#header header h1 {
-    font-size: 40px;
-}
-
-#header header span {
-    font-size: 20px;
-}
-
-#sign-up-button {
+#session-form input[type="submit"] {
   display: flex;
-  height: 50px;
-  width: 250px;
+  height: 30px;
   border-radius: 5px;
 
   background-color: rgb(0, 182, 57);
@@ -99,41 +78,54 @@ section > * {
   align-items: center;
 }
 
-img[alt="Screenshot"] {
- width: 100%;
- box-shadow: 5px 5px 10px lightgray;
+#session-form input[type="submit"]:hover {
+  cursor: pointer;
 }
 
-/* all features */
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid div[id^="block-"] {
-  display: block;
-  width: 285px;
-  height: 210px;
-
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-/* feature-personalizatio */
-
-#feature-personalization header {
-  padding-top: 225px;
+#session-form #submit-field {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* feature-integration */
+#session-form #submit-field span {
+  color: #757575;
+  font-size: 14px;
 
-#feature-integration header {
-  padding-top: 240px;
+  padding-top: 5px;
+}
+
+#session-form #submit-field span:hover {
+  cursor: default;
+}
+
+#session-form #submit-field a {
+  text-decoration: underline;
+}
+
+#session-form #submit-field a:hover {
+  cursor: pointer;
+}
+
+/* NavBar */
+
+#navbar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+#navbar > * {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#navbar button:hover {
+  cursor: pointer;
+}
+
+img[alt="Logo"] {
+  height: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }

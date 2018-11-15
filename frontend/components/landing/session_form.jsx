@@ -20,7 +20,9 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state).then(
+      success => this.props.closeModal(),
+      errors => {});
   }
 
   renderErrors() {
@@ -38,30 +40,34 @@ class SessionForm extends React.Component {
   render() {
     return (
       <form id="session-form" onSubmit={this.handleSubmit}>
+
         <h2>{this.props.formType}</h2>
-        {this.props.navLink}
 
         {this.renderErrors()}
 
-        <label htmlFor="username">Username
-          <input id="username" type="text"
-            onChange={this.update("username")}
-            value={this.state.username}></input>
-        </label>
+        <input id="username" type="text"
+          onChange={this.update("username")}
+          placeholder="Username"
+          value={this.state.username}></input>
 
-         <label htmlFor="email">Email(optional)
-           <input id="email" type="text"
-             onChange={this.update("email")}
-             value={this.state.email}></input>
-         </label>
+        <input id="email" type="text"
+          onChange={this.update("email")}
+          placeholder="Email(optional)"
+          value={this.state.email}></input>
 
-         <label htmlFor="password">Password
-           <input id="password" type="password"
-             onChange={this.update("password")}
-             value={this.state.password}></input>
-         </label>
 
-          <input type="submit" value={this.props.formType.toUpperCase()}/>
+        <input id="password" type="password"
+          onChange={this.update("password")}
+          placeholder="Password"
+          value={this.state.password}></input>
+
+        <div id="submit-field">
+          <input type="submit"
+            value={this.props.formType.toUpperCase()}/>
+          <span>
+            Go To <a onClick={this.props.otherForm}>{this.props.otherFormType}</a>
+          </span>
+        </div>
 
       </form>
     )

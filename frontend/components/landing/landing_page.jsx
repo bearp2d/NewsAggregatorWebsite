@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import NavBar from '../main/navbar';
+
 const LandingPage = ({ openModal }) => (
-  <main id="welcome-page">
+  <>
+    <NavBar />
     <section id="header" className="gray-background">
 
       <header>
@@ -154,7 +157,7 @@ const LandingPage = ({ openModal }) => (
 
 
     </section>
-  </main>
+  </>
 );
 
 export default LandingPage;

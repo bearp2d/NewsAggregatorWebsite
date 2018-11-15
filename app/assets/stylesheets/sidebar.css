@@ -1,0 +1,61 @@
+/* SideBar */
+
+/* #sidebar > * {
+  margin-left: 10px;
+  margin-right: 10px;
+} */
+
+#sidebar {
+  display: block;
+  position: fixed;
+  float: left;
+
+  width: 268px;
+  height: 100%;
+
+  background-color: #d9d9d9;
+
+  overflow: scroll;
+}
+
+/* SideBar FeedsUl */
+
+#sidebar #feeds-ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.feed-li {
+  height: 30px;
+  line-height: 30px;
+}
+
+.feed-li:hover {
+  background-color: rgb(202, 202, 202);
+}
+
+.feed-li header {
+  display: flex;
+  flex-direction: row;
+  
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Arrow Img */
+
+#sidebar #feeds-ul .img-box {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sidebar #feeds-ul img[alt="down_arrow"] {
+  width: 50%;
+}
+
+#sidebar #feeds-ul img[alt="right_arrow"] {
+  height: 50%;
+}

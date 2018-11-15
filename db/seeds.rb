@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Feed.delete_all
+
+Feed.create!(user_id: 5, feed_name: "Tech")
+Feed.create!(user_id: 5, feed_name: "Culture")
+Feed.create!(user_id: 5, feed_name: "Sports")
+Feed.create!(user_id: 5, feed_name: "Humor")

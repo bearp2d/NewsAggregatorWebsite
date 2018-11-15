@@ -5,12 +5,13 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 import * as Actions from './actions/session_actions';
+import * as FeedActions from './actions/feed_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState = {};
   if (window.currentUser) {
       preloadedState = {
-        entities: { users: {[window.currentUser.id]: window.currentUser}},
+        entities: { user: window.currentUser},
         session: {id: window.currentUser.id}
       };
     }
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   window.Actions = Actions;
+  window.FeedActions = FeedActions;
   // testing purposes
 
   const root = document.getElementById('root');

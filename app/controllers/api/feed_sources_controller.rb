@@ -1,4 +1,4 @@
-class FeedSourcesController < ApplicationController
+class Api::FeedSourcesController < ApplicationController
 
   def create
     @feed_source = FeedSource.new(

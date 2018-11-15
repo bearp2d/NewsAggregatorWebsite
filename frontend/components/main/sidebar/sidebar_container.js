@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchAllFeeds } from '../../../actions/feed_actions';
+
 import SideBar from './sidebar';
 
 const mapStateToProps = (state) => ({
@@ -9,7 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  fetchAllFeeds: () => dispatch(fetchAllFeeds())
 });
 
 export default connect(

@@ -1,7 +1,7 @@
-class FeedsController < ApplicationController
+class Api::FeedsController < ApplicationController
 
   def index
-    @feeds = current_user.feeds
+    @feeds = current_user.feeds.includes(:sources)
 
     render 'api/feeds/index.json.jbuilder'
   end

@@ -34,6 +34,11 @@ function Modal({modal, closeModal}) {
     <div className="modal-background" onClick={closeModal}>
       <div className={sidepanel ? "modal-child-sidepanel":"modal-child-center"}
         onClick={e => e.stopPropagation()}>
+        {sidepanel ?
+          <div id="close-button" onClick={closeModal}>
+            <img src={window.close_icon} alt="Close-icon"/>
+          </div>
+          :""}
         { component }
       </div>
     </div>

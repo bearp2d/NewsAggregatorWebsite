@@ -135,8 +135,8 @@ vertical images height for the arrrow to rotate smoothly */
 }
 
 #new-feed-form #errors-list {
-  max-height: 12px;
-  font-size: 10px;
+  min-height: 15px;
+  font-size: 15px;
 }
 
 /* form submit buttons */

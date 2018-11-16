@@ -1,6 +1,6 @@
-const apikey = "97fa43da0174457c85fd336607176e69";
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI(apikey);
+const api_key = window.news_api_key;
+const newsapi = new NewsAPI(api_key);
 
 export const fetchTopHeadlines = () => {
   return newsapi.v2.topHeadlines({

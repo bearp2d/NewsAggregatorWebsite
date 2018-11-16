@@ -23,7 +23,7 @@ class NewFeedForm extends React.Component {
     e.preventDefault();
     this.props.processForm(this.state.title).then(
       success => this.props.closeModal(),
-      errors => {});
+      errors => this.setState({title: ""}));
   }
 
   renderErrors() {
@@ -53,7 +53,7 @@ class NewFeedForm extends React.Component {
             value={this.state.title}></input>
 
           {this.renderErrors()}
-          
+
           <div id="submit-field">
             <input type="submit" value="SAVE"/>
             <button id="cancel-button" onClick={this.props.closeModal}>
@@ -67,7 +67,7 @@ class NewFeedForm extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-  errors: []
+  errors: state.errors.form
 });
 
 const mapDispatchToProps = (dispatch) => ({

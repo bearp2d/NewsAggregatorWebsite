@@ -46,13 +46,14 @@ class SideBar extends React.Component {
               <small className="img-box">
                 <img src={window.hamburger_menu} alt="hamburger_menu"/>
               </small>
-              <span>All</span>
+              <span className="title">All</span>
             </header>
           </li>
 
           {this.renderFeedLis()}
 
-          <li id="add-feed" className="feed-li" key={"a"}>
+          <li id="add-feed" className="feed-li" key={"new-feed-footer"}
+            onClick={() => this.props.openModal('new-feed-form')}>
             <header>Create New Feed</header>
           </li>
         </ul>

@@ -34,7 +34,7 @@ class FeedElement extends React.Component {
               <small className="img-box" onClick={this.toggleActive}>
                 <img src={window.down_arrow} alt="down_arrow"/>
               </small>
-              <span>{this.props.feed.feed_name}</span>
+              <span className="title">{this.props.feed.feed_name}</span>
 
             </header>
           </li>
@@ -48,7 +48,7 @@ class FeedElement extends React.Component {
             <small className="img-box" onClick={this.toggleActive}>
               <img src={window.right_arrow} alt="right_arrow"/>
             </small>
-            <span>{this.props.feed.feed_name}</span>
+            <span className="description">{this.props.feed.feed_name}</span>
           </header>
         </li>
       )

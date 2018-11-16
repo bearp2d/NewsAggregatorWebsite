@@ -5,11 +5,17 @@ import { connect } from 'react-redux';
 import LoginFormContainer from './landing/login_form_container';
 import SignupFormContainer from './landing/signup_form_container';
 
+import NewFeedForm from './main/sidebar/new_feed_form';
+
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
   let component;
+
+  //in order to change the classname and restyle the modal
+  let sidepanel = false;
+  //
   switch (modal) {
     case 'login':
       component = <LoginFormContainer />;
@@ -17,12 +23,17 @@ function Modal({modal, closeModal}) {
     case 'signup':
       component = <SignupFormContainer />;
       break;
+    case 'new-feed-form':
+      component = <NewFeedForm />;
+      sidepanel = true;
+      break;
     default:
       return null;
   }
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+      <div className={sidepanel ? "modal-child-sidepanel":"modal-child-center"}
+        onClick={e => e.stopPropagation()}>
         { component }
       </div>
     </div>

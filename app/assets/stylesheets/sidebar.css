@@ -105,3 +105,73 @@ vertical images height for the arrrow to rotate smoothly */
   padding-left: 33px;
   font-weight: 400;
 }
+
+/* New Feed Form */
+
+#new-feed-form {
+  padding-top: 50px;
+  padding-left: 150px;
+}
+
+#new-feed-form header {
+  padding-bottom: 60px;
+}
+
+#new-feed-form input[type="text"] {
+  width: 600px;
+  height: 30px;
+  padding-left: 10px;
+
+  border: 1px solid lightgray;
+  border-radius: 5px;
+
+  font-size: 14px;
+  color: black;
+}
+
+#new-feed-form input[type="text"]:focus {
+  outline: none;
+  border: 1px solid rgb(0, 182, 57);
+}
+
+#new-feed-form #errors-list {
+  max-height: 12px;
+  font-size: 10px;
+}
+
+/* form submit buttons */
+
+#new-feed-form input[type="submit"] {
+  width: 50px;
+  height: 30px;
+
+  background-color: rgb(0, 182, 57);
+  color: white;
+
+  border-radius: 5px;
+
+  margin-right: 10px;
+}
+
+#new-feed-form button {
+  width: 70px;
+  height: 30px;
+
+  background-color: white;
+  color: gray;
+  font-weight: 600;
+
+  border-radius: 5px;
+}
+
+#new-feed-form input[type="submit"], button:hover {
+  cursor: pointer;
+}
+
+#new-feed-form input[type="submit"]:hover {
+  background-color: green;
+}
+
+#new-feed-form button:hover {
+  color: darkgray;
+}

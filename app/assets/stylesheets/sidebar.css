@@ -1,10 +1,5 @@
 /* SideBar */
 
-/* #sidebar > * {
-  margin-left: 10px;
-  margin-right: 10px;
-} */
-
 #sidebar {
   display: block;
   position: fixed;
@@ -15,7 +10,30 @@
 
   background-color: #d9d9d9;
 
-  overflow: scroll;
+  overflow: hidden;
+
+  font-size: 13px;
+}
+
+/* Feeds UL Header */
+
+#sidebar #feeds-ul #feeds-header small {
+  float: right;
+}
+
+#sidebar #feeds-ul #feeds-header {
+  margin-left: 10px;
+  margin-right: 15px;
+
+  height: 25px;
+  line-height: 25px;
+
+  font-size: 12px;
+  color: gray;
+}
+
+#sidebar #feeds-ul #feeds-header .img-box:hover {
+  cursor: pointer;
 }
 
 /* SideBar FeedsUl */
@@ -23,21 +41,25 @@
 #sidebar #feeds-ul {
   list-style: none;
   padding: 0px;
+  width: 100%;
 }
 
 .feed-li {
-  height: 30px;
-  line-height: 30px;
+  height: 25px;
+  line-height: 25px;
+
+  font-weight: 550;
 }
 
 .feed-li:hover {
   background-color: rgb(202, 202, 202);
+  cursor: pointer;
 }
 
 .feed-li header {
   display: flex;
   flex-direction: row;
-  
+
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -45,17 +67,41 @@
 /* Arrow Img */
 
 #sidebar #feeds-ul .img-box {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
+  padding-right: 8px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#sidebar #feeds-ul .img-box:hover {
+  filter: brightness(65%);
+}
+
+/* It is important that the horizontal images width is the same as the
+vertical images height for the arrrow to rotate smoothly */
+
 #sidebar #feeds-ul img[alt="down_arrow"] {
-  width: 50%;
+  width: 60%;
 }
 
 #sidebar #feeds-ul img[alt="right_arrow"] {
-  height: 50%;
+  height: 60%;
+}
+
+#sidebar #feeds-ul img[alt="hamburger_menu"] {
+  width: 50%
+}
+
+#sidebar #feeds-ul img[alt="settings_icon"] {
+  width: 60%
+}
+
+/* Create new feed link */
+
+#sidebar #feeds-ul #add-feed {
+  padding-left: 33px;
+  font-weight: 400;
 }

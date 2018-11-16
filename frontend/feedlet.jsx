@@ -7,6 +7,8 @@ import Root from './components/root';
 import * as Actions from './actions/session_actions';
 import * as FeedActions from './actions/feed_actions';
 
+import * as NewsApiUtil from './util/news_api_util';
+
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState = {};
   if (window.currentUser) {
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.Actions = Actions;
   window.FeedActions = FeedActions;
+  window.NewsApiUtil = NewsApiUtil;
   // testing purposes
 
   const root = document.getElementById('root');

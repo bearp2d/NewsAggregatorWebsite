@@ -10,15 +10,19 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
 
-/* temporary */
+/* Define the parent container properties for entire page */
 .vsc-initialized {
   display: block;
   height: 100vh;
+  margin: 0 auto;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 325;
 }
 
 #root {
@@ -27,14 +31,9 @@
   width: 100%;
 }
 
-/* temporary */
+/* Define the parent container properties for entire page */
 
-body {
-  margin: 0 auto;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 325;
-}
+/* Signup/Login Modal */
 
 .modal-background {
   position: fixed;
@@ -128,7 +127,7 @@ body {
   height: 50px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #d9d9d9;
 }
 
 #navbar > * {

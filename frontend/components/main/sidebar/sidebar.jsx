@@ -32,20 +32,30 @@ class SideBar extends React.Component {
     return (
       <div id="sidebar">
 
-
-
-        <section id="feeds">
+        <ul id="feeds-ul">
 
           <header id="feeds-header">
-            <h4>Feeds</h4>
-            <span>settings placeholder**</span>
+            <span>FEEDS</span>
+            <small className="img-box">
+              <img src={window.settings_icon} alt="settings_icon"/>
+            </small>
           </header>
 
-          <ul id="feeds-ul">
-            <li key={0}>All</li>
-            {this.renderFeedLis()}
-          </ul>
-        </section>
+          <li className="feed-li" key={0}>
+            <header>
+              <small className="img-box">
+                <img src={window.hamburger_menu} alt="hamburger_menu"/>
+              </small>
+              <span>All</span>
+            </header>
+          </li>
+
+          {this.renderFeedLis()}
+
+          <li id="add-feed" className="feed-li" key={"a"}>
+            <header>Create New Feed</header>
+          </li>
+        </ul>
       </div>
     )
   }

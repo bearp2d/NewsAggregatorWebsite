@@ -8,7 +8,7 @@
 #
 
 class Feed < ApplicationRecord
-  validates :user_id, :feed_name, presence: true
+  validates :feed_name, :user_id, presence: true
   validates_uniqueness_of :user_id, scope: :feed_name
 
   validates :feed_name, length: {minimum: 1}

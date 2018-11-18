@@ -1,3 +1,4 @@
+import { RECEIVE_ALL_SOURCES } from '../../actions/news_api_actions';
 import { merge } from 'lodash';
 
 const sourcesReducer = (state = {}, action) => {
@@ -5,7 +6,9 @@ const sourcesReducer = (state = {}, action) => {
   let newState = merge({}, state);
 
   switch(action.type) {
-
+    case RECEIVE_ALL_SOURCES:
+      return action.sources;
+      
     default:
       return state;
   };

@@ -4,7 +4,6 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import Modal from './modal';
-// import NavBar from './main/navbar';
 import LandingPageContainer from './landing/landing_page_container';
 import MainPage from './main/main_page';
 

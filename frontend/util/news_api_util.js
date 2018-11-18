@@ -1,8 +1,8 @@
 const NewsAPI = require('newsapi');
-const api_key = window.news_api_key;
-const newsapi = new NewsAPI(api_key);
 
 export const fetchTopHeadlines = () => {
+  const apiKey = window.news_api_key;
+  const newsapi = new NewsAPI(apiKey);
   return newsapi.v2.topHeadlines({
     category: 'politics',
     language: 'en',
@@ -10,7 +10,9 @@ export const fetchTopHeadlines = () => {
   });
 };
 
-export const fetchAllSources = () => {
+export const fetchAllSources = (api_key) => {
+  const apiKey = window.news_api_key;
+  const newsapi = new NewsAPI(api_key);
   return newsapi.v2.sources({
     language: 'en',
     country: 'us'

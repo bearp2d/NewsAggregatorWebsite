@@ -42,6 +42,10 @@
   color: #757575;
 }
 
+ul {
+  list-style: none;
+}
+
 /* Define the parent container properties for entire page */
 
 /* input areas placeholder text */

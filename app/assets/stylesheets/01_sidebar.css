@@ -16,6 +16,13 @@
   font-size: 13px;
 }
 
+/* Keep the active sidebar li highlighted to show which main-content page
+we are on */
+
+/* #sidebar .active-li {
+  background-color: rgb(202, 202, 202);
+} */
+
 /* Feeds UL Header */
 
 #sidebar #feeds-ul #feeds-header small {
@@ -66,7 +73,7 @@
 
 /* Arrow Img */
 
-#sidebar ul .img-box {
+#sidebar .img-box {
   height: 25px;
   width: 25px;
   padding-right: 8px;
@@ -83,31 +90,34 @@
 /* It is important that the horizontal images width is the same as the
 vertical images height for the arrrow to rotate smoothly */
 
-#sidebar #feeds-ul img[alt="down_arrow"] {
+#sidebar img[alt="down_arrow"] {
   width: 60%;
 }
 
-#sidebar #feeds-ul img[alt="right_arrow"] {
+#sidebar img[alt="right_arrow"] {
   height: 60%;
 }
 
-#sidebar #feeds-ul img[alt="hamburger_menu"] {
+#sidebar img[alt="today_icon"] {
+  width: 60%;
+}
+
+#sidebar img[alt="bookmark_icon"] {
   width: 50%
 }
 
-#sidebar #feeds-ul img[alt="settings_icon"] {
+#sidebar img[alt="hamburger_menu"] {
+  width: 50%
+}
+
+#sidebar img[alt="settings_icon"] {
   width: 60%
 }
 
-#sidebar #links-ul img[alt="bookmark_icon"] {
-  width: 50%
+#sidebar img[alt="plus_icon"] {
+  width: 75%
 }
 
-/* temporary */
-#sidebar #links-ul img[alt="hamburger_menu"] {
-  width: 50%
-}
-/* temporary */
 
 
 /* Create new feed link */
@@ -185,4 +195,36 @@ vertical images height for the arrrow to rotate smoothly */
 
 #new-feed-form button:hover {
   color: darkgray;
+}
+
+/* New Content Button */
+
+#new-content-button {
+  position: absolute;
+  bottom: 0;
+
+  height: 50px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 1px solid lightgray;
+}
+
+#new-content-button:hover {
+  background-color: rgb(202, 202, 202);
+  cursor: pointer;
+}
+
+#new-content-button span {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+#new-content-button .img-box {
+  height: 25px;
+  width: 25px;
 }

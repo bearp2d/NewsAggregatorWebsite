@@ -39,3 +39,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+#main-content .article-li .description {
+  font-size: 13px;
+}

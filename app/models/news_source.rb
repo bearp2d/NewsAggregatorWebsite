@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: sources
+# Table name: news_sources
 #
 #  id                 :bigint(8)        not null, primary key
 #  source_name        :string           not null
@@ -9,7 +9,7 @@
 #  source_url         :string           not null
 #
 
-class Source < ApplicationRecord
+class NewsSource < ApplicationRecord
   validates :source_name, :source_url, presence: true
 
   has_many :source_feeds,

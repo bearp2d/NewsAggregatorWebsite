@@ -18,8 +18,8 @@ class FeedSource < ApplicationRecord
     foreign_key: :feed_id,
     class_name: :Feed
 
-  belongs_to :source,
+  belongs_to :news_source,
     primary_key: :id,
     foreign_key: :source_id,
-    class_name: :Source
+    class_name: :NewsSource
 end

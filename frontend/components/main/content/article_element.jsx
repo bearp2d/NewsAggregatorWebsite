@@ -24,7 +24,11 @@ class ArticleElement extends React.Component {
 
   render() {
     return (
-      <li className="article-li">
+      <li className="article-li"
+        onClick={() => this.props.openModal('article-popup-page',
+          {article: this.props.article,
+            elapsedTime: this.elapsedTime(this.props.article.publishedAt)})}>
+
         <small className="img-box">
           <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
         </small>

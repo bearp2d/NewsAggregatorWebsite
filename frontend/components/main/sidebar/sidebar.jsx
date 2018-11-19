@@ -39,7 +39,7 @@ class SideBar extends React.Component {
             <li className="feed-li" key={"today-link"}>
               <header>
                 <small className="img-box">
-                  <img src={window.hamburger_menu} alt="hamburger_menu"/>
+                  <img src={window.today_icon} alt="today_icon"/>
                 </small>
                 <span className="title">Today</span>
               </header>
@@ -86,6 +86,16 @@ class SideBar extends React.Component {
             <header>Create New Feed</header>
           </li>
         </ul>
+
+        <Link to="/discover" style={{ textDecoration: 'none' }}>
+          <div id="new-content-button">
+            <small className="img-box">
+              <img src={window.plus_icon} alt="plus_icon"/>
+            </small>
+
+            <span className="title">Add Content</span>
+          </div>
+        </Link>
       </div>
     )
   }

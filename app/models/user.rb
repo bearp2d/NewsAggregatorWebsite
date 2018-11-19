@@ -25,9 +25,9 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Feed
 
-  has_many :sources,
+  has_many :news_sources,
     through: :feeds,
-    source: :sources
+    source: :news_sources
 
   attr_reader :password
 

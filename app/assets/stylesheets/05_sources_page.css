@@ -1,0 +1,36 @@
+#sources-ul .source-li {
+  width: 550px;
+  height: 208px;
+  padding: 24px;
+
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+#sources-ul .source-li .title {
+  font-weight: 600;
+}
+
+#sources-ul .source-li {
+  /* just doing this so i can position the follow button absolute */
+  position: relative;
+}
+
+#sources-ul .source-li button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  width: 82px;
+  height: 22px;
+
+  background-color: white;
+  color: rgb(0, 182, 57);
+  border: 1px solid rgb(0, 182, 57);
+  border-radius: 5px;
+}
+
+#sources-ul .source-li button:hover {
+  color: green;
+  border: 1px solid green;
+}

@@ -23,7 +23,7 @@ class Feed < ApplicationRecord
     foreign_key: :feed_id,
     class_name: :FeedSource
 
-  has_many :sources,
+  has_many :news_sources,
     through: :feed_sources,
-    source: :source
+    source: :news_source
 end

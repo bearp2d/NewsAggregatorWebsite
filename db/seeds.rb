@@ -5,10 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'byebug'
+require 'news-api'
 
-Feed.delete_all
+api_key = Rails.application.credentials.news_api[:api_key]
+newsapi = News.new(api_key)
 
-Feed.create!(user_id: 5, feed_name: "Tech")
-Feed.create!(user_id: 5, feed_name: "Culture")
-Feed.create!(user_id: 5, feed_name: "Sports")
-Feed.create!(user_id: 5, feed_name: "Humor")
+sources = newsapi.get_sources(country: 'us', language: 'en')
+
+sources.each do |source|
+  begin
+    NewsSource.create!(source_name: source.name,
+       source_description: source.description,
+       source_url: source.url)
+  rescue
+    next
+  end
+end

@@ -6,8 +6,9 @@ import LoginFormContainer from './landing/login_form_container';
 import SignupFormContainer from './landing/signup_form_container';
 
 import NewFeedForm from './main/sidebar/new_feed_form';
+import ArticlePopupPage from './main/content/article_popup_page';
 
-function Modal({modal, closeModal}) {
+function Modal({modal, optional_props, closeModal}) {
   if (!modal) {
     return null;
   }
@@ -23,10 +24,17 @@ function Modal({modal, closeModal}) {
     case 'signup':
       component = <SignupFormContainer />;
       break;
+
     case 'new-feed-form':
       component = <NewFeedForm />;
       sidepanel = true;
       break;
+    case 'article-popup-page':
+      component = <ArticlePopupPage article={optional_props.article}
+                    elapsedTime={optional_props.elapsedTime}/>;
+      sidepanel = true;
+      break;
+      
     default:
       return null;
   }
@@ -47,7 +55,8 @@ function Modal({modal, closeModal}) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    optional_props: state.ui.optional_props
   };
 };
 

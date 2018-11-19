@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchTopHeadlines } from '../../../actions/news_api_actions';
+import { openModal } from '../../../actions/modal_actions';
 import ArticlesPage from './articles_page';
 
 const mapStateToProps = (state) => ({
@@ -13,7 +14,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchRelevantArticles: () =>
-    dispatch(fetchTopHeadlines())
+    dispatch(fetchTopHeadlines()),
+  openModal: (modal, optional_props) => dispatch(openModal(modal, optional_props))
 });
 
 export default connect(

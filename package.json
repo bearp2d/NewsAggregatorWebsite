@@ -9,6 +9,7 @@
     "lodash": "^4.17.11",
     "newsapi": "^2.4.0",
     "react": "^16.6.3",
+    "react-click-outside": "^3.0.1",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",

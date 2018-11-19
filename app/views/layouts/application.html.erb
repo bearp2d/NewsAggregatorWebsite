@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('favicon.png'),
+      :rel => 'icon', :type =>  'image/png' %>
 
     <script type="text/javascript">
       window.screenshot = "<%= image_url('screenshot_official.png') %>"
@@ -17,6 +19,8 @@
       window.settings_icon = "<%= image_url('settings_icon.png') %>"
       window.close_icon = "<%= image_url('close_icon.png') %>"
       window.bookmark_icon = "<%= image_url('bookmark_icon.png') %>"
+      window.plus_icon = "<%= image_url('plus_icon.png') %>"
+      window.today_icon = "<%= image_url('today_icon.png') %>"
 
       window.news_api_key = "<%= Rails.application.credentials.news_api[:api_key] %>"
     </script>

@@ -5,4 +5,4 @@ json.username user.username
 
 json.feed_ids user.feeds.pluck(:id)
 
-json.source_list user.news_sources.pluck(:source_url)
+json.source_list user.news_sources.pluck(:source_id)

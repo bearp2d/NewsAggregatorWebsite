@@ -9,12 +9,21 @@ export const fetchTopHeadlines = () => {
 };
 
 export const fetchAllArticles = (sourceList) => {
-  debugger
   const apiKey = window.news_api_key;
   const newsapi = new NewsAPI(apiKey);
   return newsapi.v2.everything({
-    domains: sourceList.join(","),
+    sources: sourceList.join(","),
     language: 'en',
     page: 1
   });
 };
+
+export const fetchFeedArticles = (sourceList) => {
+  const apiKey = window.news_api_key;
+  const newsapi = new NewsAPI(apiKey);
+  return newsapi.v2.everything({
+    sources: sourceList.join(","),
+    language: 'en',
+    page: 1
+  });
+}

@@ -5,9 +5,13 @@
 }
 
 #main-content {
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 #main-content > * {
   padding-left: 100px;
+}
+
+#articles-page-header {
+  padding-bottom: 50px;
 }

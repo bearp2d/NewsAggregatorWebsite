@@ -8,6 +8,10 @@
   flex-direction: row;
 }
 
+#main-content .article-li:hover {
+  cursor: pointer;
+}
+
 #main-content .article-li .img-box {
   width: 130px;
   height: 78px;

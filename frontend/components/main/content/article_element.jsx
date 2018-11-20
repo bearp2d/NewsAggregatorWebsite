@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { openModal } from '../../../actions/modal_actions';
@@ -26,8 +27,7 @@ class ArticleElement extends React.Component {
     return (
       <li className="article-li"
         onClick={() => this.props.openModal('article-popup-page',
-          {article: this.props.article,
-            elapsedTime: this.elapsedTime(this.props.article.publishedAt)})}>
+          {article: this.props.article, index: this.props.index})}>
 
         <small className="img-box">
           <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
@@ -49,4 +49,12 @@ class ArticleElement extends React.Component {
   }
 }
 
-export default ArticleElement;
+const mapDispatchToProps = (dispatch) => ({
+  openModal: (modal, optional_props) =>
+    dispatch(openModal(modal, optional_props))
+  });
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(ArticleElement);

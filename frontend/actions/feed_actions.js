@@ -51,7 +51,11 @@ export const fetchAllSources = () => (dispatch) => (
 );
 
 export const createNewFollow = (feed_id, source_id) => (dispatch) => (
-  FeedApiUtil.createNewFollow(feed_id, source_id).then(
-    (res) => dispatch(updateSourceList(res))
-  )
+  FeedApiUtil.createNewFollow(feed_id, source_id)
+    .then((res) => dispatch(updateSourceList(res)))
+    .then(() => dispatch(fetchAllFeeds()))
+);
+
+export const createNewFavorite = (article) => (dispatch) => (
+  FeedApiUtil.createNewFavorite(article)
 );

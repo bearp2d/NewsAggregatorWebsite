@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_165455) do
+ActiveRecord::Schema.define(version: 2018_11_20_174152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_165455) do
     t.string "source_logo_url"
     t.text "source_description"
     t.string "source_url", null: false
+    t.string "source_id"
     t.index ["source_name"], name: "index_news_sources_on_source_name", unique: true
   end
 

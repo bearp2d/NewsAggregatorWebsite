@@ -8,14 +8,18 @@
 require 'byebug'
 require 'news-api'
 
+NewsSource.delete_all
+
 api_key = Rails.application.credentials.news_api[:api_key]
 newsapi = News.new(api_key)
 
-sources = newsapi.get_sources(country: 'us', language: 'en')
+sources = newsapi.get_sources(language: 'en')
 
 sources.each do |source|
   begin
-    NewsSource.create!(source_name: source.name,
+    NewsSource.create!(
+       source_name: source.name,
+       source_id: source.id,
        source_description: source.description,
        source_url: source.url)
   rescue

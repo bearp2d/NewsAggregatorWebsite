@@ -6,27 +6,15 @@ import FeedElement from './feed_element';
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {active: null};
   }
 
   componentDidMount() {
     this.props.fetchAllFeeds().then(() =>
       this.props.fetchAllSources())
-
-    // then(() => {
-    //   Object.keys(this.props.feeds).forEach((feed_id) => {
-    //     this.setState({ [feed_id]: "inactive"})
-    //   });
-    // });
-  }
-
-  componentDidUpdate(oldProps) {
-    //I may need to put logic here for updating the sidebar when a
-    //feed is created/destroyed (length of feeds object??)
   }
 
   renderFeedLis() {
-    //temporary fix before I implement sources
     return Object.values(this.props.feeds).map((feed) => {
       return <FeedElement feed={feed} />
     });

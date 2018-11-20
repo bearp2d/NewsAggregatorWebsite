@@ -7,6 +7,7 @@
 #  source_logo_url    :string
 #  source_description :text
 #  source_url         :string           not null
+#  source_id          :string
 #
 
 class NewsSource < ApplicationRecord

@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
+import * as NewsApiActions from './util/news_api_util';
+
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState = {};
   if (window.currentUser) {
@@ -13,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }
   const store = configureStore(preloadedState);
+
+  //testing
+  window.NewsApiActions = NewsApiActions;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

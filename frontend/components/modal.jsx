@@ -31,10 +31,12 @@ function Modal({modal, optional_props, closeModal}) {
       break;
     case 'article-popup-page':
       component = <ArticlePopupPage article={optional_props.article}
-                    elapsedTime={optional_props.elapsedTime}/>;
+                    elapsedTime={optional_props.elapsedTime}
+                    index={optional_props.index}
+                    createNewFavorite={optional_props.createNewFavorite}/>;
       sidepanel = true;
       break;
-      
+
     default:
       return null;
   }

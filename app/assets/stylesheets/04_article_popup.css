@@ -7,7 +7,7 @@
   flex-direction: column;
 
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
 
   background-color: white;
 }
@@ -16,6 +16,39 @@
   width: 647px;
   margin: 0 auto;
 }
+
+/* Next/Previous Arrow */
+
+#article-popup .next_prev_button {
+  height: 50px;
+  width: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background-color: white;
+}
+
+#article-popup .next_prev_button:hover {
+  background-color: #d9d9d9;
+}
+
+#article-popup .next_prev_button:hover img {
+  filter: brightness(25%);
+}
+
+#article-popup img[alt="right_arrow"] {
+  width: 50%;
+}
+
+#article-popup img[alt="left_arrow"] {
+  width: 50%;
+}
+
+/* Article Header/Thumbnaio */
 
 #article-popup header {
   padding-bottom: 60px;

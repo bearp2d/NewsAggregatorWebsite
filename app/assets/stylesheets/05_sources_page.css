@@ -3,6 +3,8 @@
   height: 208px;
   padding: 24px;
 
+  margin-bottom: 20px;
+
   border: 1px solid lightgray;
   border-radius: 5px;
 }
@@ -33,4 +35,128 @@
 #sources-ul .source-li button:hover {
   color: green;
   border: 1px solid green;
+}
+
+/* Feeds Dropdown menu */
+
+#sources-ul #feeds-dropdown {
+  z-index: 1;
+  position: absolute;
+  top: 60px;
+  right: 24px;
+
+  width: 300px;
+  height: 265px;
+  padding: 0px;
+  padding-right: 17px;
+
+  background-color: white;
+
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px lightgray;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#sources-ul #feeds-dropdown li {
+  width: 300px;
+  height: 40px;
+  padding: 8px;
+  box-sizing: border-box;
+
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#sources-ul #feeds-dropdown li #stupid-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#sources-ul #feeds-dropdown li:hover {
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+#sources-ul #feeds-dropdown .img-box {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sources-ul #feeds-dropdown img[alt="rss_icon"] {
+  width: 60%;
+}
+
+/* Feed Li hidden +Add button */
+
+#feeds-dropdown #add-button {
+  display: none;
+
+  width: 60px;
+  height: 24px;
+  padding: 5px;
+  box-sizing: border-box;
+  line-height: 14px;
+
+  color: rgb(0, 182, 57);
+  border: 1px solid rgb(0, 182, 57);
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: 600px;
+}
+
+#sources-ul #feeds-dropdown li:hover #add-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#feeds-dropdown #add-button .img-box {
+  width: 14px;
+  height: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#feeds-dropdown #add-button img[alt="green_plus_icon"] {
+  width: 100%;
+}
+
+/* FeedsDropdown check-added button */
+
+#feeds-dropdown #added-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 60px;
+  height: 24px;
+  padding: 5px;
+  box-sizing: border-box;
+  line-height: 14px;
+
+  background-color: rgb(0, 182, 57);
+  color: white;
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: 600px;
+}
+
+#feeds-dropdown #added-button img[alt="checkmark_icon"] {
+  width: 100%;
 }

@@ -3,6 +3,7 @@ import * as FeedApiUtil from '../util/feed_api_util';
 export const RECEIVE_NEW_FEED = "RECEIVE_NEW_FEED";
 export const RECEIVE_ALL_FEEDS = "RECEIVE_ALL_FEEDS";
 export const RECEIVE_ALL_SOURCES = "RECEIVE_ALL_SOURCES";
+export const UPDATE_SOURCE_LIST = "UPDATE_SOURCE_LIST";
 export const RECEIVE_FORM_ERRORS = "RECEIVE_FORM_ERRORS";
 
 export const receiveAllFeeds = (feeds) => ({
@@ -18,7 +19,12 @@ export const receiveNewFeed = (feed) => ({
 export const receiveAllSources = (sources) => ({
   type: RECEIVE_ALL_SOURCES,
   sources: sources
-})
+});
+
+export const updateSourceList = (res) => ({
+  type: UPDATE_SOURCE_LIST,
+  source_list: res.source_list
+});
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_FORM_ERRORS,
@@ -46,7 +52,6 @@ export const fetchAllSources = () => (dispatch) => (
 
 export const createNewFollow = (feed_id, source_id) => (dispatch) => (
   FeedApiUtil.createNewFollow(feed_id, source_id).then(
-    // not sure if this is necessary, will come back to it
-    () => dispatch(fetchAllFeeds())
+    (res) => dispatch(updateSourceList(res))
   )
 );

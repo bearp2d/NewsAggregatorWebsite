@@ -1,33 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// Old-syntax but I don't know how to do it otherwise
-const enhanceWithClickOutside = require('react-click-outside');
-
 import { createNewFollow } from '../../../actions/feed_actions';
 
 class FeedsDropdown extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {open: this.props.dropdownOpen}
   }
-
-  // Paired together to hide dropdown when clicked outside of
-  // handleClickOutside() {
-  //   this.setState({open: false});
-  // }
-  //
-  // componentDidUpdate(oldProps) {
-  //   if (this.props.selectedSource.id !== oldProps.selectedSource.id) {
-  //     this.setState({open: true})
-  //   }
-  // }
-
-  //
 
   renderFeedLis() {
     return Object.values(this.props.feeds).map((feed, idx) => (
-      <li key={idx}>{feed.feed_name}</li>
+      <li key={idx} onClick={
+          this.props.createNewFollow(feed.id, this.props.selectedSource.id)}>
+        <div id="stupid-header">
+          <small className="img-box">
+            <img src={window.rss_icon} alt="rss_icon"/>
+          </small>
+          {feed.feed_name}
+        </div>
+        {(feed.source_ids.includes(this.props.selectedSource.id) ?
+          (<div id="added-button">
+            <small className="img-box">
+              <img src={window.checkmark_icon} alt="checkmark_icon"/>
+            </small>
+            <div>ADDED</div>
+          </div>) :
+          (<div id="add-button">
+            <small className="img-box">
+              <img src={window.green_plus_icon} alt="green_plus_icon"/>
+            </small>
+            <div>ADD</div>
+          </div>)
+        )}
+      </li>
     ));
   }
 
@@ -45,8 +50,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createNewFollow: (feed_id, source_id) =>
-    dispatch(createNewFollow(feed_id, sourc_id))
+  createNewFollow: (feed_id, source_id) => (e) =>
+    dispatch(createNewFollow(feed_id, source_id))
 });
 
 export default connect(

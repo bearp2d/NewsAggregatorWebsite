@@ -118,7 +118,15 @@ vertical images height for the arrrow to rotate smoothly */
   width: 75%
 }
 
+/* Feed Source Lis (i.e. the SubList under each feed) */
 
+#sidebar .feed-source-li header {
+  margin-left: 50px;
+  margin-right: 15px;
+
+  font-weight: 400;
+  color: black;
+}
 
 /* Create new feed link */
 

@@ -10,11 +10,14 @@ class SideBar extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllFeeds().then(() => {
-      Object.keys(this.props.feeds).forEach((feed_id) => {
-        this.setState({ [feed_id]: "inactive"})
-      });
-    });
+    this.props.fetchAllFeeds().then(() =>
+      this.props.fetchAllSources())
+
+    // then(() => {
+    //   Object.keys(this.props.feeds).forEach((feed_id) => {
+    //     this.setState({ [feed_id]: "inactive"})
+    //   });
+    // });
   }
 
   componentDidUpdate(oldProps) {

@@ -11,6 +11,7 @@ const ArticlePopupPage = ({ article, elapsedTime }) => {
             "by " + `${article.author}` + " / " : ""
           }
           {elapsedTime}
+          / keep unread // hide
         </span>
       </header>
 

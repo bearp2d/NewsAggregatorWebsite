@@ -1,17 +1,12 @@
 import * as NewsApiUtil from '../util/news_api_util';
 
 export const RECEIVE_ALL_ARTICLES = "RECEIVE_ALL_ARTICLES";
-// export const RECEIVE_ALL_SOURCES = "RECEIVE_ALL_SOURCES";
+export const RECEIVE_API_ERRORS = "RECEIVE_API_ERRORS";
 
 export const receiveAllArticles = (articles) => ({
   type: RECEIVE_ALL_ARTICLES,
   articles: articles
 });
-
-// export const receiveAllSources = (sources) => ({
-//   type: RECEIVE_ALL_SOURCES,
-//   sources: sources
-// });
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_API_ERRORS,
@@ -25,9 +20,9 @@ export const fetchTopHeadlines = () => (dispatch) => (
   )
 );
 
-// export const fetchAllSources = () => (dispatch) => (
-//   NewsApiUtil.fetchAllSources().then(
-//     res => dispatch(receiveAllSources(res.sources)),
-//     errors => dispatch(receiveErrors(errors))
-//   )
-// );
+export const fetchAllArticles = (sourceList) => (dispatch) => (
+  NewsApiUtil.fetchAllArticles(sourceList).then(
+    res => dispatch(receiveAllArticles(res.articles)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);

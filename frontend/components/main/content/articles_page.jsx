@@ -9,7 +9,7 @@ class ArticlesPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchRelevantArticles();
+    this.props.fetchRelevantArticles(this.props.sourceList);
   }
 
   renderArticleLis() {
@@ -30,7 +30,7 @@ class ArticlesPage extends React.Component {
         </header>
 
         <ul id={this.props.contentType}>
-          {this.renderArticleLis()};
+          {this.renderArticleLis()}
         </ul>
       </>
     )

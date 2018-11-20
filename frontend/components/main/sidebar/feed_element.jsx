@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class FeedElement extends React.Component {
   constructor(props) {
@@ -21,7 +22,17 @@ class FeedElement extends React.Component {
 
   renderSourcesUl() {
     return (
-      <strong>sources ul!!</strong>
+      <ul id="feed-sources-ul">
+        {this.props.feed.source_ids.map((source_id) => {
+          return (
+            <li className="feed-source-li" key={source_id}>
+              <header>
+                {this.props.sources[source_id].source_name}
+              </header>
+            </li>
+          )
+        })}
+      </ul>
     )
   }
 
@@ -35,27 +46,36 @@ class FeedElement extends React.Component {
                 <img src={window.down_arrow} alt="down_arrow"/>
               </small>
               <span className="title">{this.props.feed.feed_name}</span>
-
             </header>
           </li>
+
           {this.renderSourcesUl()}
         </>
-      )
-    } else {
+    )} else {
       return (
-        <li className="feed-li" key={this.props.feed.id}>
-          <header>
-            <small className="img-box" onClick={this.toggleActive}>
-              <img src={window.right_arrow} alt="right_arrow"/>
-            </small>
-            <span className="description">{this.props.feed.feed_name}</span>
-          </header>
-        </li>
-      )
-    };
+        <>
+          <li className="feed-li" key={this.props.feed.id}>
+            <header>
+              <small className="img-box" onClick={this.toggleActive}>
+                <img src={window.right_arrow} alt="right_arrow"/>
+              </small>
+              <span className="title">{this.props.feed.feed_name}</span>
+            </header>
+          </li>
+        </>
+    )}
   }
-
-
 }
 
-export default FeedElement;
+const mapStateToProps = (state) => ({
+  sources: state.entities.sources
+})
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FeedElement);

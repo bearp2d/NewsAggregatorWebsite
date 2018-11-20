@@ -23,19 +23,22 @@ class SourcesPage extends React.Component {
   }
 
   renderNewsSourceLis() {
-    return this.props.sources.map((source, idx) => {
+    return Object.values(this.props.sources).map((source) => {
       return (
-        <li className="source-li" key={idx}>
+        <li className="source-li" key={source.id}>
           <header>
-            <span className="title">{source.name}</span>
+            <span className="title">{source.source_name}</span>
             <br/>
-            <span className="description">{source.url}</span>
+            <span className="description">{source.source_url}</span>
             <button className="dropbutton"
               onClick={this.handleDropdown(source)}>
               FOLLOW
             </button>
           </header>
-          <p className="description">{source.description}</p>
+          {(this.state.selectedSource.id === source.id) ?
+            <FeedsDropdown selectedSource={this.state.selectedSource}
+              dropdownOpen={this.state.dropdownOpen}/> : null}
+          <p className="description">{source.source_description}</p>
         </li>
       )
     });
@@ -44,10 +47,11 @@ class SourcesPage extends React.Component {
   render() {
     return (
       <>
-        <FeedsDropdown selectedSource={this.state.selectedSource}
-          dropdownOpen={this.state.dropdownOpen}/>
         <ul id="sources-ul"
-          onClick={() => this.setState({dropdownOpen: false})}>
+          onClick={() => this.setState({
+            selectedSource: {id: null},
+            dropdownOpen: false})
+          }>
           {this.renderNewsSourceLis()}
         </ul>
       </>

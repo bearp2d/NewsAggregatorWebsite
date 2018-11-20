@@ -1,21 +1,29 @@
 #article-popup {
-  padding-top: 50px;
-  padding-left: 150px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
 
-  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   background-color: white;
 }
 
 #article-popup > * {
   width: 647px;
+  margin: 0 auto;
 }
 
 #article-popup header {
   padding-bottom: 60px;
+}
+
+#article-popup header .title {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 #article-popup .img-box {
@@ -28,4 +36,21 @@
   width: 100%;
   height: auto;
   border-radius: 5px;
+}
+
+#article-popup .description {
+  color: black;
+
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+#article-popup button {
+  height: 40px;
+
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: gray;
+
+  font-weight: 500px;
 }

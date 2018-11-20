@@ -80,6 +80,9 @@ input::-webkit-input-placeholder {
   right: 0;
 
   width: 75%;
+  height: calc(100% + 20px);
+
+  overflow-y: auto;
 }
 
 .modal-child-sidepanel #close-button {

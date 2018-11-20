@@ -1,7 +1,7 @@
 import { RECEIVE_ALL_SOURCES } from '../../actions/feed_actions';
 import { merge } from 'lodash';
 
-const sourcesReducer = (state = [], action) => {
+const sourcesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 

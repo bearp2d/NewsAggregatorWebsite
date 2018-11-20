@@ -6,7 +6,7 @@ class Api::FeedSourcesController < ApplicationController
       source_id: params[:source_id])
 
     if @feed_source.save
-      render json: {}, status: 200
+      render 'api/feed_sources/show.json.jbuilder', status: 200
     else
       render json: @feed_source.errors.full_messages, status: 401
     end

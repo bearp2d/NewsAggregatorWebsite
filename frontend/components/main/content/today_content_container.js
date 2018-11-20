@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
   contentType: "TopHeadlines",
   title: "Today",
   info: "The insights you need to get the inside edge",
-  articles: state.entities.articles
+  articles: state.entities.articles,
+  sourceList: null
 });
 
 const mapDispatchToProps = (dispatch) => ({

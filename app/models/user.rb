@@ -29,6 +29,15 @@ class User < ApplicationRecord
     through: :feeds,
     source: :news_sources
 
+  has_many :favorites,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Favorite
+
+  has_many :favorite_articles,
+    through: :favorites,
+    source: :article
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

@@ -31,7 +31,14 @@ export const createNewFollow = (feed_id, source_id) => {
 export const createNewFavorite = (article) => {
   return $.ajax({
     method: 'POST',
-    url: '/api/articles',
+    url: '/api/favorites',
     data: {article: article}
+  })
+};
+
+export const fetchAllFavorites = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/favorites'
   })
 };

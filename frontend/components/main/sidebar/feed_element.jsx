@@ -42,47 +42,49 @@ class FeedElement extends React.Component {
     )
   }
 
-  renderFeedElement() {
-    if (this.state.active) {
-      return (
-        <>
-          <li className="feed-li" key={this.props.feed.id}>
-            <header>
-              <small className="img-box" onClick={e => this.toggleActive(e)}>
-                <img src={window.down_arrow} alt="down_arrow"/>
-              </small>
-              <span className="title">{this.props.feed.feed_name}</span>
-            </header>
-          </li>
-
-          {this.renderSourcesUl()}
-        </>
-    )} else {
-      return (
-        <>
-          <li className="feed-li" key={this.props.feed.id}>
-            <header>
-              <small className="img-box" onClick={e => this.toggleActive(e)}>
-                <img src={window.right_arrow} alt="right_arrow"/>
-              </small>
-              <span className="title">{this.props.feed.feed_name}</span>
-            </header>
-          </li>
-        </>
-    )}
-  }
-
   render() {
     if (this.props.feed.source_ids.length > 0) {
       return (
-        <Link to={`/category/${this.props.feed.feed_name}`}
-          style={{ textDecoration: 'none'}}>
-          {this.renderFeedElement()}
-        </Link>
+        <>
+          <li className="feed-li" key={this.props.feed.id}>
+            <header>
+              {this.state.active ?
+                (<small className="img-box" onClick={e => this.toggleActive(e)}>
+                  <img src={window.down_arrow} alt="down_arrow"/>
+                </small>) :
+                (<small className="img-box" onClick={e => this.toggleActive(e)}>
+                  <img src={window.right_arrow} alt="right_arrow"/>
+                </small>)
+              }
+              <Link to={`/category/${this.props.feed.feed_name}`}
+                style={{ textDecoration: 'none'}}>
+                <div className="title">{this.props.feed.feed_name}</div>
+              </Link>
+            </header>
+          </li>
+
+          {this.state.active ? this.renderSourcesUl() : null}
+        </>
       )
     } else {
-        return this.renderFeedElement()
-    };
+      return (
+        <>
+          <li className="feed-li" key={this.props.feed.id}>
+            <header>
+              {this.state.active ?
+                (<small className="img-box" onClick={e => this.toggleActive(e)}>
+                  <img src={window.down_arrow} alt="down_arrow"/>
+                </small>) :
+                (<small className="img-box" onClick={e => this.toggleActive(e)}>
+                  <img src={window.right_arrow} alt="right_arrow"/>
+                </small>)
+              }
+              <div className="title">{this.props.feed.feed_name}</div>
+            </header>
+          </li>
+        </>
+      )
+    }
   }
 
 

@@ -71,6 +71,11 @@ we are on */
   margin-right: 15px;
 }
 
+#sidebar #feeds-ul li header .title {
+  height: 25px;
+  width: 205px;
+}
+
 /* Arrow Img */
 
 #sidebar .img-box {

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :feeds, only: [:index, :create, :destroy]
     resources :feed_sources, only: [:create, :destroy]
     resources :news_sources, only: [:index]
+    resources :favorites, only: [:create, :index, :destroy]
   end
 end

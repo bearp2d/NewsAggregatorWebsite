@@ -17,7 +17,7 @@
   margin: 0 auto;
 }
 
-/* Next/Previous Arrow */
+/* Next/Previous Arrow and Read Later/Delete Button */
 
 #article-popup .next_prev_button {
   height: 50px;
@@ -46,6 +46,29 @@
 
 #article-popup img[alt="left_arrow"] {
   width: 50%;
+}
+
+#article-popup #save-button {
+  border: none;
+  height: 20px;
+
+  color: #757575;
+  font-size: 16px;
+  font-weight: 325;
+}
+
+#article-popup #save-button:hover {
+  color: black;
+  font-weight: 400;
+}
+
+#article-popup #save-button:disabled {
+  color: lightgray;
+}
+
+#article-popup #save-button:disabled:hover {
+  cursor: default;
+  font-weight: 325;
 }
 
 /* Article Header/Thumbnaio */
@@ -78,7 +101,7 @@
   margin-bottom: 60px;
 }
 
-#article-popup button {
+#article-popup #link-button {
   height: 40px;
 
   border: 1px solid lightgray;
@@ -86,4 +109,8 @@
   color: gray;
 
   font-weight: 500px;
+}
+
+#article-popup #link-button:hover {
+  background-color: lightgray;
 }

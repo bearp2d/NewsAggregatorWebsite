@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 import * as NewsApiActions from './util/news_api_util';
+import * as FeedApiUtil from './util/feed_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState = {};
@@ -17,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore(preloadedState);
 
   //testing
+  window.getState = store.getState;
   window.NewsApiActions = NewsApiActions;
+  window.FeedApiUtil = FeedApiUtil;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

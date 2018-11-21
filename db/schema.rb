@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_174152) do
+ActiveRecord::Schema.define(version: 2018_11_21_161504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "source_id", null: false
+    t.string "url", null: false
+    t.string "urlToImage"
+    t.string "title", null: false
+    t.string "author"
+    t.string "publishedAt"
+    t.text "description"
+    t.text "content"
+    t.index ["source_id"], name: "index_articles_on_source_id"
+    t.index ["url"], name: "index_articles_on_url", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "article_id", null: false
+    t.index ["user_id", "article_id"], name: "index_favorites_on_user_id_and_article_id", unique: true
+  end
 
   create_table "feed_sources", force: :cascade do |t|
     t.integer "feed_id", null: false
@@ -35,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_174152) do
     t.text "source_description"
     t.string "source_url", null: false
     t.string "source_id"
+    t.index ["source_id"], name: "index_news_sources_on_source_id", unique: true
     t.index ["source_name"], name: "index_news_sources_on_source_name", unique: true
   end
 

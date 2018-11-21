@@ -1,5 +1,7 @@
 import * as FeedApiUtil from '../util/feed_api_util';
 
+import { RECEIVE_ALL_ARTICLES, receiveAllArticles } from './news_api_actions';
+
 export const RECEIVE_NEW_FEED = "RECEIVE_NEW_FEED";
 export const RECEIVE_ALL_FEEDS = "RECEIVE_ALL_FEEDS";
 export const RECEIVE_ALL_SOURCES = "RECEIVE_ALL_SOURCES";
@@ -59,3 +61,10 @@ export const createNewFollow = (feed_id, source_id) => (dispatch) => (
 export const createNewFavorite = (article) => (dispatch) => (
   FeedApiUtil.createNewFavorite(article)
 );
+
+export const fetchAllFavorites = () => (dispatch) => (
+  FeedApiUtil.fetchAllFavorites().then(
+    articles => dispatch(receiveAllArticles(articles)),
+    errors => dispatch(receiveErrors(errors))
+  )
+)

@@ -1,6 +1,7 @@
 #article-popup {
   padding-top: 100px;
   padding-bottom: 100px;
+
   height: 100%;
 
   display: flex;
@@ -17,7 +18,7 @@
   margin: 0 auto;
 }
 
-/* Next/Previous Arrow and Read Later/Delete Button */
+/* Next/Previous Arrow */
 
 #article-popup .next_prev_button {
   height: 50px;
@@ -47,6 +48,20 @@
 #article-popup img[alt="left_arrow"] {
   width: 50%;
 }
+
+#article-popup #prev-button {
+  position: absolute;
+  left: -100px;
+  top: calc(50% - 25px);
+}
+
+#article-popup #next-button {
+  position: absolute;
+  right: -100px;
+  top: calc(50% - 25px);
+}
+
+/* Read Later/Delete Button */
 
 #article-popup #save-delete-button {
   border: none;
@@ -83,6 +98,7 @@
 }
 
 #article-popup .img-box {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,8 +113,8 @@
 #article-popup .description {
   color: black;
 
-  margin-top: 60px;
-  margin-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 #article-popup #link-button {

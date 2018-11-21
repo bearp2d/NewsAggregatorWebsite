@@ -6,18 +6,32 @@ import ArticleElement from './article_element';
 class ArticlesPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {page: 1};
+
+    this.updatePage = this.updatePage.bind(this);
+    window.onscroll = () => {
+      if (window.innerHeight + document.documentElement.scrollTop
+        === document.getElementById('main').offsetHeight) {
+          this.updatePage();
+      }
+    };
   }
 
   componentDidMount() {
     this.props.fetchAllFeeds().then(
       this.props.fetchAllSources()).then(
-      this.props.fetchRelevantArticles(this.props.sourceList));
+      this.props.fetchRelevantArticles(this.props.sourceList, this.state.page));
   }
 
   componentDidUpdate(oldProps) {
     if (this.props.title !== oldProps.title){
-      this.props.fetchRelevantArticles(this.props.sourceList);
+      this.props.fetchRelevantArticles(this.props.sourceList, this.state.page);
     }
+  }
+
+  updatePage() {
+    this.setState({page: this.state.page + 1});
+    this.props.updateRelevantArticles(this.props.sourceList, this.state.page);
   }
 
   renderArticleLis() {

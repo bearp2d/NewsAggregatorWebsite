@@ -28,65 +28,72 @@ class ArticlePopupPage extends React.Component {
   render() {
     return (
       <div id="article-popup">
-        <small className="next_prev_button" onClick={() =>
-            this.props.openModal('article-popup-page',
-            {article: this.props.articles[this.props.index - 1], index: (this.props.index - 1)})}>
 
-            <img src={window.left_arrow} alt="left_arrow"/>
-          </small>
+        <header className="article-header">
+          <span className="title">{this.props.article.title}</span>
+          <br/>
+          <span className="by-line">
+            {this.props.article.author ?
+              "by " + `${this.props.article.author}` + " / " : ""
+            }
+            {`${this.elapsedTime(this.props.article.publishedAt)}` + " "}
+            /
+            {this.props.saved ?
+              (
+                <button id="save-delete-button" disabled={this.state.buttonDisabled}
+                  onClick={() => {
+                    this.props.deleteFavorite(this.props.article.id).then(
+                      res => this.props.closeModal())
+                  }
+                }>
+                  Remove from Favorites
+                </button>
+              ) : (
+                <button id="save-delete-button" disabled={this.state.buttonDisabled}
+                  onClick={() => {
+                    this.props.createNewFavorite(this.props.article).then(
+                    res => this.setState({buttonDisabled: true}))
+                  }
+                }>
+                  Read Later
+                </button>
+              )
+            }
+          </span>
+        </header>
 
-          <small className="next_prev_button" onClick={() =>
-              this.props.openModal('article-popup-page',
-              {article: this.props.articles[this.props.index + 1], index: (this.props.index + 1)})}>
+        <div className="img-box">
+          { (this.props.index !== 0) ?
+            (<small className="next_prev_button" id="prev-button"
+            onClick={() => this.props.openModal('article-popup-page',
+              {article: this.props.articles[this.props.index - 1],
+                index: (this.props.index - 1)})}>
+
+              <img src={window.left_arrow} alt="left_arrow"/>
+            </small>) : null
+          }
+
+          { (this.props.index !== this.props.articles.length - 1) ?
+            (<small className="next_prev_button" id="next-button"
+            onClick={() => this.props.openModal('article-popup-page',
+              {article: this.props.articles[this.props.index + 1],
+                index: (this.props.index + 1)})}>
 
               <img src={window.right_arrow} alt="right_arrow"/>
-            </small>
+            </small>) : null
+          }
 
-            <header className="article-header">
-              <span className="title">{this.props.article.title}</span>
-              <br/>
-              <span className="by-line">
-                {this.props.article.author ?
-                  "by " + `${this.props.article.author}` + " / " : ""
-                }
-                {`${this.elapsedTime(this.props.article.publishedAt)}` + " "}
-                /
-                {this.props.saved ?
-                  (
-                    <button id="save-delete-button" disabled={this.state.buttonDisabled}
-                      onClick={() => {
-                        this.props.deleteFavorite(this.props.article.id).then(
-                          res => this.props.closeModal())
-                      }
-                    }>
-                      Remove from Favorites
-                    </button>
-                  ) : (
-                    <button id="save-delete-button" disabled={this.state.buttonDisabled}
-                      onClick={() => {
-                        this.props.createNewFavorite(this.props.article).then(
-                        res => this.setState({buttonDisabled: true}))
-                      }
-                    }>
-                      Read Later
-                    </button>
-                  )
-                }
-            </span>
-          </header>
-
-          <small className="img-box">
-            <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
-          </small>
-
-          <div className="description">{this.props.article.content}</div>
-
-          <button id="link-button" onClick={
-            () => window.open(this.props.article.url, "_blank")
-          }>
-            VISIT WEBSITE
-          </button>
+          <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
         </div>
+
+        <div className="description">{this.props.article.content}</div>
+
+        <button id="link-button" onClick={
+          () => window.open(this.props.article.url, "_blank")
+        }>
+          VISIT WEBSITE
+        </button>
+      </div>
     )
   }
 };

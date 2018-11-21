@@ -75,7 +75,7 @@ input::-webkit-input-placeholder {
 }
 
 .modal-child-sidepanel {
-  position: absolute;
+  position: fixed;
   top: -20px;
   right: 0;
 

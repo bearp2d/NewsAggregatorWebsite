@@ -16,8 +16,10 @@ const mapStateToProps = (state) => ({
   sourceList: null
 });
 
+// here fetchAllFavorites does not need a page specification because it doesnt
+// query the NewsApi
 const mapDispatchToProps = (dispatch) => ({
-  fetchRelevantArticles: () =>
+  fetchRelevantArticles: (page) =>
     dispatch(fetchAllFavorites()),
   fetchAllFeeds: () => dispatch(fetchAllFeeds()),
   fetchAllSources: () => dispatch(fetchAllSources())

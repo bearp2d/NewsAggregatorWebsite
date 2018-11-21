@@ -6,6 +6,7 @@ export const RECEIVE_NEW_FEED = "RECEIVE_NEW_FEED";
 export const RECEIVE_ALL_FEEDS = "RECEIVE_ALL_FEEDS";
 export const RECEIVE_ALL_SOURCES = "RECEIVE_ALL_SOURCES";
 export const UPDATE_SOURCE_LIST = "UPDATE_SOURCE_LIST";
+export const REMOVE_FAVORITE_ARTICLE = "REMOVE_FAVORITE_ARTICLE";
 export const RECEIVE_FORM_ERRORS = "RECEIVE_FORM_ERRORS";
 
 export const receiveAllFeeds = (feeds) => ({
@@ -26,6 +27,11 @@ export const receiveAllSources = (sources) => ({
 export const updateSourceList = (res) => ({
   type: UPDATE_SOURCE_LIST,
   source_list: res.source_list
+});
+
+export const removeFavoriteArticle = (articleId) => ({
+  type: REMOVE_FAVORITE_ARTICLE,
+  id: articleId
 });
 
 export const receiveErrors = (errors) => ({
@@ -63,7 +69,9 @@ export const createNewFavorite = (article) => (dispatch) => (
 );
 
 export const deleteFavorite = (articleId) => (dispatch) => (
-  FeedApiUtil.deleteFavorite(articleId)
+  FeedApiUtil.deleteFavorite(articleId).then(
+    res => dispatch(removeFavoriteArticle(articleId))
+  )
 );
 
 export const fetchAllFavorites = () => (dispatch) => (

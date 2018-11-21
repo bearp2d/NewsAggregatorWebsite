@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_ARTICLES,
   UPDATE_ARTICLES } from '../../actions/news_api_actions';
+import { REMOVE_FAVORITE_ARTICLE } from '../../actions/feed_actions';
 
 import { merge } from 'lodash';
 
@@ -12,10 +13,13 @@ const articlesReducer = (state = [], action) => {
       return action.articles;
 
     case UPDATE_ARTICLES:
-    // this is the first place I'll look for problems with updating the
-    // articles slice of state upon infinite scroll
-      return _.concat(newState, action.articles)
+      return _.concat(newState, action.articles);
 
+    case REMOVE_FAVORITE_ARTICLE:
+      const filteredArticles = newState.filter(
+        (article) => article.id !== action.id);
+      return filteredArticles;
+      
     default:
       return state;
   };

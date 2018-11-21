@@ -28,7 +28,7 @@ class FeedElement extends React.Component {
         {this.props.feed.source_ids.map((source_id) => {
           let source = this.props.sources[source_id];
           return (
-            <Link to={`/subscription/${source.source_url}`}
+            <Link to={`/subscription/${source.source_id}`}
               style={{ textDecoration: 'none'}}>
               <li className="feed-source-li" key={source_id}>
                 <header>

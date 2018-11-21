@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchAllArticles,
-  updateAllArticles } from '../../../actions/news_api_actions';
-import { fetchAllFeeds, fetchAllSources } from '../../../actions/feed_actions';
-import { openModal } from '../../../actions/modal_actions';
-import ArticlesPage from './articles_page';
+  updateAllArticles } from '../../../../actions/news_api_actions';
+import { fetchAllFeeds, fetchAllSources } from '../../../../actions/feed_actions';
+import { openModal } from '../../../../actions/modal_actions';
+import ArticlesPage from '../articles_page';
 
 
 const mapStateToProps = (state, ownProps) => ({

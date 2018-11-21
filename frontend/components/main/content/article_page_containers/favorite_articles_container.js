@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import { fetchAllFeeds,
   fetchAllSources,
-  fetchAllFavorites } from '../../../actions/feed_actions';
-import { openModal } from '../../../actions/modal_actions';
-import ArticlesPage from './articles_page';
+  fetchAllFavorites } from '../../../../actions/feed_actions';
+import { openModal } from '../../../../actions/modal_actions';
+import ArticlesPage from '../articles_page';
 
 const mapStateToProps = (state) => ({
   contentType: "FavoriteArticles",

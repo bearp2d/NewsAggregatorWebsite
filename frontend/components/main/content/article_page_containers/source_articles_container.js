@@ -2,18 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchAllArticles,
-  updateAllArticles } from '../../../actions/news_api_actions';
-import { fetchAllFeeds, fetchAllSources } from '../../../actions/feed_actions';
-import { openModal } from '../../../actions/modal_actions';
-import ArticlesPage from './articles_page';
+  updateAllArticles } from '../../../../actions/news_api_actions';
+import { fetchAllFeeds, fetchAllSources } from '../../../../actions/feed_actions';
+import { openModal } from '../../../../actions/modal_actions';
+import ArticlesPage from '../articles_page';
 
-const mapStateToProps = (state) => ({
-  contentType: "AllArticles",
-  title: "All",
-  info: "The most recent articles from all of your feeds",
+
+const mapStateToProps = (state, ownProps) => ({
+  contentType: "SourceArticles",
+  title: ownProps.match.params.sourceId,
+  info: "",
   saved: false,
   articles: state.entities.articles,
-  sourceList: state.entities.user.source_list
+  sourceList: [ownProps.match.params.sourceId]
 });
 
 const mapDispatchToProps = (dispatch) => ({

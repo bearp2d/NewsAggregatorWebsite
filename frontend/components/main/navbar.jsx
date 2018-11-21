@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { openModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
@@ -26,7 +27,10 @@ class NavBar extends React.Component {
     return (
       <nav id="navbar">
         <img src={window.logo} alt="Logo"/>
-        {userButton}
+        <div>
+          {userButton}
+          <Link to="/trollolol">Bonus Feature</Link>
+        </div>
       </nav>
     )
   }

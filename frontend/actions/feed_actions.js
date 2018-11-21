@@ -62,6 +62,10 @@ export const createNewFavorite = (article) => (dispatch) => (
   FeedApiUtil.createNewFavorite(article)
 );
 
+export const deleteFavorite = (articleId) => (dispatch) => (
+  FeedApiUtil.deleteFavorite(articleId)
+);
+
 export const fetchAllFavorites = () => (dispatch) => (
   FeedApiUtil.fetchAllFavorites().then(
     articles => dispatch(receiveAllArticles(articles)),

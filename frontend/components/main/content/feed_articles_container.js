@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
   contentType: "FeedArticles",
   title: ownProps.match.params.feedName,
   info: "",
+  saved: false,
   articles: state.entities.articles,
   sourceList: (Object.values(state.entities.feeds).find((feed) =>
     feed.feed_name === ownProps.match.params.feedName).source_list)

@@ -23,7 +23,8 @@ class ArticlesPage extends React.Component {
   renderArticleLis() {
     return this.props.articles.map((article, idx) => {
       return (
-          <ArticleElement article={article} index={idx} key={idx}/>
+          <ArticleElement article={article} index={idx}
+            saved={this.props.saved} key={idx}/>
       );
     });
   }

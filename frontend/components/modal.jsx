@@ -33,7 +33,8 @@ function Modal({modal, optional_props, closeModal}) {
       component = <ArticlePopupPage article={optional_props.article}
                     elapsedTime={optional_props.elapsedTime}
                     index={optional_props.index}
-                    createNewFavorite={optional_props.createNewFavorite}/>;
+                    createNewFavorite={optional_props.createNewFavorite}
+                    saved={optional_props.saved}/>;
       sidepanel = true;
       break;
 

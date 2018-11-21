@@ -25,7 +25,9 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find(params[:favorite_id])
+    @article = Article.find(params[:id])
+    @favorite = Favorite.find_by(user_id: current_user.id,
+      article_id: @article.id)
 
     if @favorite
       @favorite.destroy
@@ -34,12 +36,5 @@ class Api::FavoritesController < ApplicationController
       render json: ["Invalid favorite reference"], status: 404
     end
   end
-
-  private
-
-  # def favorite_params
-  #   params.require(:article).permit(:url, :urlToImage,
-  #     :title, :author, :publishedAt, :description, :content)
-  # end
 
 end

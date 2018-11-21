@@ -48,7 +48,7 @@
   width: 50%;
 }
 
-#article-popup #save-button {
+#article-popup #save-delete-button {
   border: none;
   height: 20px;
 
@@ -57,16 +57,16 @@
   font-weight: 325;
 }
 
-#article-popup #save-button:hover {
+#article-popup #save-delete-button:hover {
   color: black;
   font-weight: 400;
 }
 
-#article-popup #save-button:disabled {
+#article-popup #save-delete-button:disabled {
   color: lightgray;
 }
 
-#article-popup #save-button:disabled:hover {
+#article-popup #save-delete-button:disabled:hover {
   cursor: default;
   font-weight: 325;
 }

@@ -36,6 +36,16 @@ export const createNewFavorite = (article) => {
   })
 };
 
+export const deleteFavorite = (articleId) => {
+  // this is very unconventional but I am actually passing the article id
+  // to the FeedsController in order to identify the favorite record that
+  // I need since I no longer have the favorite id in the frontend
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/favorites/${articleId}`
+  })
+}
+
 export const fetchAllFavorites = () => {
   return $.ajax({
     method: 'GET',

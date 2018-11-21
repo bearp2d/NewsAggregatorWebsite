@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   contentType: "TopHeadlines",
   title: "Today",
   info: "The insights you need to get the inside edge",
+  saved: false,
   articles: state.entities.articles,
   sourceList: null
 });

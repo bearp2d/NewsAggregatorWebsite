@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   contentType: "FavoriteArticles",
   title: "Read Later",
   info: "",
+  saved: true,
   articles: state.entities.articles,
   sourceList: null
 });

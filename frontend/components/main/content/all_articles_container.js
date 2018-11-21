@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
   contentType: "AllArticles",
   title: "All",
   info: "The most recent articles from all of your feeds",
+  saved: false,
   articles: state.entities.articles,
   sourceList: state.entities.user.source_list
 });

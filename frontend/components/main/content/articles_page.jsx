@@ -18,10 +18,8 @@ class ArticlesPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllFeeds().then(
-      this.props.fetchAllSources()).then(
-      this.props.fetchRelevantArticles(this.props.sourceList,
-        this.props.searchQuery, this.state.page));
+    this.props.fetchRelevantArticles(this.props.sourceList,
+      this.props.searchQuery, this.state.page);
   }
 
   componentDidUpdate(oldProps) {

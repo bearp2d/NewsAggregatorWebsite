@@ -7,6 +7,12 @@ import { openModal } from '../../../actions/modal_actions';
 class ArticleElement extends React.Component {
   constructor(props) {
     super(props);
+
+    this.articleElementStyle = this.articleElementStyle.bind(this);
+
+    window.addEventListener('storage', () => {
+      this.forceUpdate();
+    })
   }
 
   elapsedTime(datetime) {
@@ -23,6 +29,13 @@ class ArticleElement extends React.Component {
     }
   }
 
+  articleElementStyle() {
+    if (sessionStorage.getItem(this.props.article.url) &&
+      this.props.saved === false) {
+      return {color: "lightgray", filter: "opacity(60%)"}
+    }
+  }
+
   render() {
     return (
       <li className="article-li"
@@ -30,12 +43,16 @@ class ArticleElement extends React.Component {
           {article: this.props.article, index: this.props.index,
             saved: this.props.saved})}>
 
-        <small className="img-box">
+        <small className="img-box"
+          style={this.articleElementStyle()}>
           <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
         </small>
 
         <header className="article-header">
-          <span className="title">{this.props.article.title}</span>
+          <span className="title"
+            style={this.articleElementStyle()}>
+            {this.props.article.title}
+          </span>
           <br/>
           <span className="by-line">
             {this.props.article.author ?

@@ -16,23 +16,27 @@ class NavBar extends React.Component {
     let userButton;
     if (this.props.loggedIn) {
       userButton = (
-      <button id="logout-button" onClick={() => this.props.logout()}>
+      <button id="log-button" onClick={() => this.props.logout()}>
         LOGOUT
       </button>)
     } else {
       userButton = (
-      <button id="login-button" onClick={() => this.props.openModal('login')}>
+      <button id="log-button" onClick={() => this.props.openModal('login')}>
         LOGIN
       </button>)
     };
 
     return (
       <nav id="navbar">
-        <img src={window.logo} alt="Logo"/>
-        <div>
+        <div id="masthead">
+          <Link to="/my">
+            <img src={window.logo} alt="Logo"/>
+          </Link>
+          <span id="masthead-title" className="title">Feedlet</span>
+        </div>
+        <div id="user-bar">
           <SearchBar />
           {userButton}
-          <Link to="/trollolol">Bonus Feature</Link>
         </div>
       </nav>
     )

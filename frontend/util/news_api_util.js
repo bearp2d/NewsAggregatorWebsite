@@ -20,3 +20,13 @@ export const fetchAllArticles = (sourceList, page) => {
     page: page
   });
 };
+
+export const fetchSearchArticles = (searchQuery, page) => {
+  const apiKey = window.news_api_key;
+  const newsapi = new NewsAPI(apiKey);
+  return newsapi.v2.everything({
+    q: searchQuery,
+    language: 'en',
+    page: page
+  });
+}

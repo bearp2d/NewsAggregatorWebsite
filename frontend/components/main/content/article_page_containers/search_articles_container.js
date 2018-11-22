@@ -1,27 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchTopHeadlines,
-  updateTopHeadlines } from '../../../../actions/news_api_actions';
+import { fetchSearchArticles,
+  updateSearchArticles } from '../../../../actions/news_api_actions';
 import { fetchAllFeeds, fetchAllSources } from '../../../../actions/feed_actions';
 import { openModal } from '../../../../actions/modal_actions';
 import ArticlesPage from '../articles_page';
 
-const mapStateToProps = (state) => ({
-  contentType: "TopHeadlines",
-  title: "Today",
-  info: "The insights you need to get the inside edge",
+const mapStateToProps = (state, ownProps) => ({
+  contentType: "SearchArticles",
+  title: ownProps.match.params.searchQuery,
+  info: "",
   saved: false,
   articles: state.entities.articles,
   sourceList: null,
-  searchQuery: null
+  searchQuery: ownProps.match.params.searchQuery
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRelevantArticles: (sourceList, searchQuery, page) =>
-    dispatch(fetchTopHeadlines(page)),
-  updateRelevantArticles: (sourceList, searchQuery, page) =>
-    dispatch(updateTopHeadlines(page)),
+  fetchRelevantArticles: (source_list, searchQuery, page) =>
+    dispatch(fetchSearchArticles(searchQuery, page)),
+  updateRelevantArticles: (source_list, searchQuery, page) =>
+    dispatch(updateSearchArticles(searchQuery, page)),
   fetchAllFeeds: () => dispatch(fetchAllFeeds()),
   fetchAllSources: () => dispatch(fetchAllSources())
 });

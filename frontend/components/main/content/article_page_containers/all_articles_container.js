@@ -13,13 +13,14 @@ const mapStateToProps = (state) => ({
   info: "The most recent articles from all of your feeds",
   saved: false,
   articles: state.entities.articles,
-  sourceList: state.entities.user.source_list
+  sourceList: state.entities.user.source_list,
+  searchQuery: null
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRelevantArticles: (source_list, page) =>
+  fetchRelevantArticles: (source_list, searchQuery, page) =>
     dispatch(fetchAllArticles(source_list, page)),
-  updateRelevantArticles: (source_list, page) =>
+  updateRelevantArticles: (source_list, searchQuery, page) =>
     dispatch(updateAllArticles(source_list, page)),
   fetchAllFeeds: () => dispatch(fetchAllFeeds()),
   fetchAllSources: () => dispatch(fetchAllSources())

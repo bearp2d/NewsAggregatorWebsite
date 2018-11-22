@@ -33,6 +33,13 @@ export const fetchAllArticles = (sourceList, page = 1) => (dispatch) => (
   )
 );
 
+export const fetchSearchArticles = (searchQuery, page = 1) => (dispatch) => (
+  NewsApiUtil.fetchSearchArticles(searchQuery, page).then(
+    res => dispatch(receiveAllArticles(res.articles)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
 export const updateTopHeadlines = (page = 1) => (dispatch) => (
   NewsApiUtil.fetchTopHeadlines(page).then(
     res => dispatch(updateArticles(res.articles)),
@@ -42,6 +49,13 @@ export const updateTopHeadlines = (page = 1) => (dispatch) => (
 
 export const updateAllArticles = (sourceList, page = 1) => (dispatch) => (
   NewsApiUtil.fetchAllArticles(sourceList, page).then(
+    res => dispatch(updateArticles(res.articles)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
+export const updateSearchArticles = (searchQuery, page = 1) => (dispatch) => (
+  NewsApiUtil.fetchSearchArticles(searchQuery, page).then(
     res => dispatch(updateArticles(res.articles)),
     errors => dispatch(receiveErrors(errors))
   )

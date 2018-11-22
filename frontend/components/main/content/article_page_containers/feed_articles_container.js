@@ -15,13 +15,14 @@ const mapStateToProps = (state, ownProps) => ({
   saved: false,
   articles: state.entities.articles,
   sourceList: (Object.values(state.entities.feeds).find((feed) =>
-    feed.feed_name === ownProps.match.params.feedName).source_list)
+    feed.feed_name === ownProps.match.params.feedName).source_list),
+  searchQuery: null
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRelevantArticles: (source_list, page) =>
+  fetchRelevantArticles: (source_list, searchQuery, page) =>
     dispatch(fetchAllArticles(source_list, page)),
-  updateRelevantArticles: (source_list, page) =>
+  updateRelevantArticles: (source_list, searchQuery, page) =>
     dispatch(updateAllArticles(source_list, page)),
   fetchAllFeeds: () => dispatch(fetchAllFeeds()),
   fetchAllSources: () => dispatch(fetchAllSources())

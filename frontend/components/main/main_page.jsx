@@ -16,6 +16,8 @@ import FeedArticlesContainer
   from './content/article_page_containers/feed_articles_container';
 import SourceArticlesContainer
   from './content/article_page_containers/source_articles_container';
+import SearchArticlesContainer
+  from './content/article_page_containers/search_articles_container';
 import SourcesPage from './sidebar/sources_page';
 import TrollComponent from './content/troll_component';
 
@@ -34,6 +36,8 @@ const MainPage = () => (
             component={FeedArticlesContainer}/>
           <ProtectedRoute exact path="/subscription/:sourceId"
             component={SourceArticlesContainer}/>
+          <ProtectedRoute exact path="/search/:searchQuery"
+            component={SearchArticlesContainer}/>
           <ProtectedRoute exact path="/discover" component={SourcesPage}/>
           <ProtectedRoute exact path="/trollolol" component={TrollComponent}/>
         </Switch>

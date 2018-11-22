@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 
+import SearchBar from './search_bar';
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props)
@@ -28,6 +30,7 @@ class NavBar extends React.Component {
       <nav id="navbar">
         <img src={window.logo} alt="Logo"/>
         <div>
+          <SearchBar />
           {userButton}
           <Link to="/trollolol">Bonus Feature</Link>
         </div>

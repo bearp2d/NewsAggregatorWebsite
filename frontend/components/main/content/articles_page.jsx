@@ -20,18 +20,21 @@ class ArticlesPage extends React.Component {
   componentDidMount() {
     this.props.fetchAllFeeds().then(
       this.props.fetchAllSources()).then(
-      this.props.fetchRelevantArticles(this.props.sourceList, this.state.page));
+      this.props.fetchRelevantArticles(this.props.sourceList,
+        this.props.searchQuery, this.state.page));
   }
 
   componentDidUpdate(oldProps) {
     if (this.props.title !== oldProps.title){
-      this.props.fetchRelevantArticles(this.props.sourceList, this.state.page);
+      this.props.fetchRelevantArticles(this.props.sourceList,
+        this.props.searchQuery, this.state.page);
     }
   }
 
   updatePage() {
     this.setState({page: this.state.page + 1});
-    this.props.updateRelevantArticles(this.props.sourceList, this.state.page);
+    this.props.updateRelevantArticles(this.props.sourceList,
+      this.props.searchQuery, this.state.page);
   }
 
   renderArticleLis() {

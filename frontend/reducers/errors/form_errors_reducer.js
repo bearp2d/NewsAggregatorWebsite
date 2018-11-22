@@ -1,5 +1,5 @@
 import { RECEIVE_FORM_ERRORS } from '../../actions/feed_actions';
-import { CLOSE_MODAL} from '../../actions/modal_actions';
+import { CLOSE_MODAL } from '../../actions/modal_actions';
 import { merge } from 'lodash';
 
 const formErrorsReducer = (state = [], action) => {

@@ -33,6 +33,7 @@ class NavBar extends React.Component {
             <img src={window.logo} alt="Logo"/>
           </Link>
           <span id="masthead-title" className="title">Feedlet</span>
+          <span id="acknowledgement">Powered by NewsAPI</span>
         </div>
         <div id="user-bar">
           <SearchBar />

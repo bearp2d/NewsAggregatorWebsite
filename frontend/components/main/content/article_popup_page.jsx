@@ -117,13 +117,13 @@ class ArticlePopupPage extends React.Component {
               "by " + `${this.props.article.author}` + " / " : ""
             }
             {`${this.elapsedTime(this.props.article.publishedAt)}` + " "}
-            /
+            {"//"}
             <button id="save-delete-button"
               disabled={this.state.unreadbuttonDisabled}
               onClick={this.markUnread}>
               Mark Unread
             </button>
-            /
+            {"//"}
             {this.renderSaveButton()}
           </span>
         </header>

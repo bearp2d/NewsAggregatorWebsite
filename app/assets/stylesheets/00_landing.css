@@ -42,6 +42,12 @@ section > * {
     font-size: 20px;
 }
 
+#entry-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 #signup-button {
   display: flex;
   height: 50px;
@@ -56,9 +62,31 @@ section > * {
   text-decoration: none;
   justify-content: center;
   align-items: center;
+
+  margin-right: 50px;
 }
 
 #signup-button:hover {
+  cursor: pointer;
+}
+
+#demo-button {
+  display: flex;
+  height: 50px;
+  width: 250px;
+  border-radius: 5px;
+
+  background-color: white;
+  color: rgb(0, 182, 57);
+  font-size: 13px;
+  font-weight: 550;
+
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#demo-button:hover {
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 json.id user.id
 json.username user.username
+json.demo user.demo
 
 # To include the users feed_id array in the user slice of state
 

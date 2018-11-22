@@ -11,10 +11,21 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+
+    if @user
+      @favorite.destroy
+      render json: {}, status: 200
+    else
+      render json: ["Invalid user reference"], status: 404
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email)
+    params.require(:user).permit(:username, :password, :email, :demo)
   end
 
 end

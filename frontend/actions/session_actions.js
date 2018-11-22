@@ -37,3 +37,15 @@ export const logout = () => (dispatch) => (
     user => dispatch(logoutCurrentUser())
   )
 );
+
+export const createDemoUser = () => (dispatch) => {
+  const user = {
+    username:  Math.random().toString(36).substring(2, 15),
+    password: Math.random().toString(36).substring(2, 15),
+    demo: true
+  }
+  SessionApiUtil.signup(user).then(
+    user => dispatch(receiveCurrentUser(user)),
+    errors => dispatch(receiveErrors(errors))
+  );
+};

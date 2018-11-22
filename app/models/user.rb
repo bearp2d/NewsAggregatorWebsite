@@ -8,6 +8,7 @@
 #  email           :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  demo            :boolean
 #
 
 class User < ApplicationRecord
@@ -15,15 +16,19 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
+  scope :expired, -> { where('created_at >= ? AND demo = true', 1.minute.ago) }
+
   has_many :sessions,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Session
+    class_name: :Session,
+    dependent: :destroy
 
   has_many :feeds,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Feed
+    class_name: :Feed,
+    dependent: :destroy
 
   has_many :news_sources,
     through: :feeds,
@@ -32,7 +37,8 @@ class User < ApplicationRecord
   has_many :favorites,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Favorite
+    class_name: :Favorite,
+    dependent: :destroy
 
   has_many :favorite_articles,
     through: :favorites,

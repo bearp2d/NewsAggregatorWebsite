@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import NavBar from '../main/navbar';
 
-const LandingPage = ({ openModal }) => (
+const LandingPage = ({ openModal, createDemoUser }) => (
   <>
     <NavBar />
     <section id="header" className="gray-background">
@@ -11,10 +11,16 @@ const LandingPage = ({ openModal }) => (
       <header>
         <h1 className="title">BE IN THE KNOW</h1>
         <span className="description">Keep up with all the topics that matter to you.
-          <br/>All in one place.</span>
-        <button id="signup-button" onClick={() => openModal('signup')}>
-          GET STARTED FOR FREE
-        </button>
+          <br/>All in one place.
+        </span>
+        <div id="entry-buttons">
+          <button id="signup-button" onClick={() => openModal('signup')}>
+            GET STARTED FOR FREE
+          </button>
+          <button id="demo-button" onClick={() => createDemoUser()}>
+            DEMO WEBSITE WITHOUT CREATING ACCOUNT
+          </button>
+        </div>
       </header>
 
       <div id="screenshot">

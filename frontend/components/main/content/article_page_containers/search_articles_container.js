@@ -10,18 +10,18 @@ import ArticlesPage from '../articles_page';
 const mapStateToProps = (state, ownProps) => ({
   contentType: "SearchArticles",
   title: ownProps.match.params.searchQuery,
-  info: "",
+  info: "Search results from all of your subscribed news sources",
   saved: false,
   articles: state.entities.articles,
-  sourceList: null,
+  sourceList: state.entities.user.source_list,
   searchQuery: ownProps.match.params.searchQuery
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRelevantArticles: (source_list, searchQuery, page) =>
-    dispatch(fetchSearchArticles(searchQuery, page)),
-  updateRelevantArticles: (source_list, searchQuery, page) =>
-    dispatch(updateSearchArticles(searchQuery, page)),
+  fetchRelevantArticles: (sourceList, searchQuery, page) =>
+    dispatch(fetchSearchArticles(sourceList, searchQuery, page)),
+  updateRelevantArticles: (sourceList, searchQuery, page) =>
+    dispatch(updateSearchArticles(sourceList, searchQuery, page)),
   fetchAllFeeds: () => dispatch(fetchAllFeeds()),
   fetchAllSources: () => dispatch(fetchAllSources())
 });

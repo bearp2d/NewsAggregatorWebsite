@@ -33,8 +33,8 @@ export const fetchAllArticles = (sourceList, page = 1) => (dispatch) => (
   )
 );
 
-export const fetchSearchArticles = (searchQuery, page = 1) => (dispatch) => (
-  NewsApiUtil.fetchSearchArticles(searchQuery, page).then(
+export const fetchSearchArticles = (sourceList, searchQuery, page = 1) => (dispatch) => (
+  NewsApiUtil.fetchSearchArticles(sourceList, searchQuery, page).then(
     res => dispatch(receiveAllArticles(res.articles)),
     errors => dispatch(receiveErrors(errors))
   )
@@ -54,8 +54,8 @@ export const updateAllArticles = (sourceList, page = 1) => (dispatch) => (
   )
 );
 
-export const updateSearchArticles = (searchQuery, page = 1) => (dispatch) => (
-  NewsApiUtil.fetchSearchArticles(searchQuery, page).then(
+export const updateSearchArticles = (sourceList, searchQuery, page = 1) => (dispatch) => (
+  NewsApiUtil.fetchSearchArticles(sourceList, searchQuery, page).then(
     res => dispatch(updateArticles(res.articles)),
     errors => dispatch(receiveErrors(errors))
   )

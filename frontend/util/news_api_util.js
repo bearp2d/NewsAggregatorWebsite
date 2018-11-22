@@ -21,11 +21,12 @@ export const fetchAllArticles = (sourceList, page) => {
   });
 };
 
-export const fetchSearchArticles = (searchQuery, page) => {
+export const fetchSearchArticles = (sourceList, searchQuery, page) => {
   const apiKey = window.news_api_key;
   const newsapi = new NewsAPI(apiKey);
   return newsapi.v2.everything({
     q: searchQuery,
+    sources: sourceList.join(","),
     language: 'en',
     page: page
   });

@@ -60,6 +60,8 @@ class ArticlesPage extends React.Component {
         <ul id={this.props.contentType}>
           {this.renderArticleLis()}
         </ul>
+
+        {this.props.saved ? null : <div className="loader"></div>}
       </>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 import ArticleElement from './article_element';
@@ -20,12 +21,16 @@ class ArticlesPage extends React.Component {
   componentDidMount() {
     this.props.fetchRelevantArticles(this.props.sourceList,
       this.props.searchQuery, this.state.page);
+
+    window.scrollTo({top: 0, behavior: "smooth"});
   }
 
   componentDidUpdate(oldProps) {
-    if (this.props.title !== oldProps.title){
+    if (this.props.match.url !== oldProps.match.url) {
       this.props.fetchRelevantArticles(this.props.sourceList,
         this.props.searchQuery, this.state.page);
+
+      window.scrollTo({top: 0, behavior: "smooth"});
     }
   }
 

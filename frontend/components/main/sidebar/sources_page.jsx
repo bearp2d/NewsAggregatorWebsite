@@ -13,6 +13,8 @@ class SourcesPage extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllSources();
+
+    window.scrollTo({top: 0, behavior: "smooth"});
   }
 
   handleDropdown(source) {

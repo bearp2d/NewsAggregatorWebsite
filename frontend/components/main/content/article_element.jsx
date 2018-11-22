@@ -45,7 +45,8 @@ class ArticleElement extends React.Component {
 
         <small className="img-box"
           style={this.articleElementStyle()}>
-          <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
+          <img src={this.props.article.urlToImage} alt="article_thumbnail"
+            onError={(e) => e.target.src=`${window.favicon}`}/>
         </small>
 
         <header className="article-header">

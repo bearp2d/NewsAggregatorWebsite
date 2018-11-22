@@ -36,7 +36,7 @@ class NavBar extends React.Component {
           <span id="acknowledgement">Powered by NewsAPI</span>
         </div>
         <div id="user-bar">
-          <SearchBar />
+          { (this.props.loggedIn) ? <SearchBar /> : null }
           {userButton}
         </div>
       </nav>

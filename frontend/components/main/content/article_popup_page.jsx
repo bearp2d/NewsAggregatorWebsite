@@ -132,7 +132,8 @@ class ArticlePopupPage extends React.Component {
           {this.renderPrevButton()}
           {this.renderNextButton()}
 
-          <img src={this.props.article.urlToImage} alt="article_thumbnail"/>
+          <img src={this.props.article.urlToImage} alt="article_thumbnail"
+            onError={(e) => e.target.src=`${window.favicon}`}/>
         </div>
 
         <div className="description">{this.props.article.content}</div>

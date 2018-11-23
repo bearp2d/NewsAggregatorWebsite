@@ -11,6 +11,8 @@ const sourceIdtoInfo = (sources, sourceId) => {
   const source = Object.values(sources).filter(
     source => source.source_id === sourceId);
 
+  if (source.length === 0) { return "" }
+
   return source[0].source_description;
 }
 

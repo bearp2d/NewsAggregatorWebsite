@@ -61,7 +61,8 @@ class ArticlesPage extends React.Component {
           {this.renderArticleLis()}
         </ul>
 
-        {this.props.saved ? null : <div className="loader"></div>}
+        {(this.props.saved || this.props.match.path === "/search/:searchQuery")?
+          null : <div className="loader"></div>}
       </>
     )
   }

@@ -1,20 +1,27 @@
 class Api::FavoritesController < ApplicationController
 
   def create
-    @article = Article.new(
-      source_id: params[:article][:source][:id],
-      url: params[:article][:url],
-      urlToImage: params[:article][:urlToImage],
-      title: params[:article][:title],
-      author: params[:article][:author],
-      publishedAt: params[:article][:publishedAt],
-      description: params[:article][:description],
-      content: params[:article][:content])
+    # check if article already exists in database
+    @article = Article.find_by(url: params[:article][:url])
 
-    if @article.save
+    if @article
       Favorite.create!(user_id: current_user.id, article_id: @article.id)
     else
-      render json: @article.errors.full_messages, status: 401
+      @article = Article.new(
+        source_id: params[:article][:source][:id],
+        url: params[:article][:url],
+        urlToImage: params[:article][:urlToImage],
+        title: params[:article][:title],
+        author: params[:article][:author],
+        publishedAt: params[:article][:publishedAt],
+        description: params[:article][:description],
+        content: params[:article][:content])
+
+      if @article.save
+        Favorite.create!(user_id: current_user.id, article_id: @article.id)
+      else
+        render json: @article.errors.full_messages, status: 401
+      end
     end
   end
 

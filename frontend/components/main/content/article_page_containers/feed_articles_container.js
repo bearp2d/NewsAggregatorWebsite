@@ -7,6 +7,14 @@ import { fetchAllFeeds, fetchAllSources } from '../../../../actions/feed_actions
 import { openModal } from '../../../../actions/modal_actions';
 import ArticlesPage from '../articles_page';
 
+const feedNameTosourceList = (feeds, feedName, user) => {
+  const feed = Object.values(feeds).find((feed) =>
+    feed.feed_name === feedName);
+
+  if (feed === undefined) { return user.source_list }
+
+  return feed.source_list;
+}
 
 const mapStateToProps = (state, ownProps) => ({
   contentType: "FeedArticles",
@@ -14,8 +22,8 @@ const mapStateToProps = (state, ownProps) => ({
   info: "",
   saved: false,
   articles: state.entities.articles,
-  sourceList: (Object.values(state.entities.feeds).find((feed) =>
-    feed.feed_name === ownProps.match.params.feedName).source_list),
+  sourceList: feedNameTosourceList(state.entities.feeds,
+    ownProps.match.params.feedName, state.entities.user),
   searchQuery: null
 });
 

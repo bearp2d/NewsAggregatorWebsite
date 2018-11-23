@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
-  scope :expired, -> { where('created_at >= ? AND demo = true', 1.minute.ago) }
+  scope :expired, -> { where('created_at <= ? AND demo = true', 12.hours.ago) }
 
   has_many :sessions,
     primary_key: :id,

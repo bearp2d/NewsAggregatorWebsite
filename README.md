@@ -46,6 +46,7 @@ end
 ```
 
 2. Read data is not stored in the database.
+
 Since read data (highlighting on the articles page showing articles that have already been clicked on) is only necessary for the immediate user experience and doesn't carry over from session to session it is stored as session cookies instead.
 
 Every time an article is clicked (bringing up the article popup page with links to the news website) an event is triggered.
@@ -75,6 +76,7 @@ markUnread() {
 ```
 
 3. All article pages have infinite scroll functionality
+
 Upon initial mounting of the ArticlesPage React Component 20 articles are queried from the third-party NewsAPI given the relevant article criteria for the current page (fed to the articles page by its various container components).
 
 An event listener is added to the articles page to be triggered by the 'onscroll' event

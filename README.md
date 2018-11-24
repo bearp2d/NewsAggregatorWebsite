@@ -49,4 +49,51 @@ end
 Since read data (highlighting on the articles page showing articles that have already been clicked on) is only necessary for the immediate user experience and doesn't carry over from session to session it is stored as session cookies instead.
 
 Every time an article is clicked (bringing up the article popup page with links to the news website) an event is triggered.
+```javascript
+componentDidMount() {
+  if (this.props.saved === false) {
+    sessionStorage.setItem(this.props.article.url, true);
+    window.dispatchEvent( new Event('storage') );
+  }
+}
 ```
+Note that a synthetic event ('storage') is triggered. This is necessary for the individual article elements rendered on the articles page to immediately rerender once their 'read' state is changed (either from 'undread' to 'read' or vice versa). This signalling is accomplished through a window event listener.
+
+```javascript
+window.addEventListener('storage', () => {
+  this.forceUpdate();
+})
+```
+
+In similar fashion articles can marked as unread after they have been selected by removing them from the session storage.
+```javascript
+markUnread() {
+  sessionStorage.removeItem(this.props.article.url);
+  this.setState({unreadbuttonDisabled: true})
+  window.dispatchEvent( new Event('storage') );
+}
+```
+
+3. All article pages have infinite scroll functionality
+Upon initial mounting of the ArticlesPage React Component 20 articles are queried from the third-party NewsAPI given the relevant article criteria for the current page (fed to the articles page by its various container components).
+
+An event listener is added to the articles page to be triggered by the 'onscroll' event
+```javascript
+window.onscroll = () => {
+  if (window.innerHeight + document.documentElement.scrollTop
+    === document.getElementById('main').offsetHeight) {
+      this.updatePage();
+  } 
+};
+```
+
+Once the condition is met, a method is called that queries 20 more articles from NewsAPI given the same criteria and updates the 'articles' slice of Redux State accordingly. At that point the react component automatically rerenders and updates the actual DOM with 20 more articles.
+```javascript
+updatePage() {
+  this.setState({page: this.state.page + 1});
+  this.props.updateRelevantArticles(this.props.sourceList,
+    this.props.searchQuery, this.state.page);
+}
+```
+This process can repeat indefinitely.
+(Note that the API queries are organized by the 'page' local state variable in the component which is incremented every time the API needs to be hit again)

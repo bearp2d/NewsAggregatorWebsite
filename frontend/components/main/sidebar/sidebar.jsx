@@ -12,6 +12,12 @@ class SideBar extends React.Component {
   componentDidMount() {
     this.props.fetchAllFeeds().then(() =>
       this.props.fetchAllSources())
+
+    this.handleSwipe();
+  }
+
+  componentWillUnmount() {
+    this.removeSwipeHandler();
   }
 
   renderFeedLis() {
@@ -90,6 +96,50 @@ class SideBar extends React.Component {
       </div>
     )
   }
+
+  handleSwipe() {
+    let touchStartX;
+    let touchStartY;
+    let touchEndX;
+    let touchEndY;
+
+    const sidebar = document.getElementById('sidebar');
+
+    window.addEventListener('touchstart', e => logTouchStart(e));
+    window.addEventListener('touchend', e => logTouchEnd(e));
+
+    const logTouchStart = (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }
+
+    const logTouchEnd = (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+
+      handleGesture();
+    }
+
+    const handleGesture = () => {
+      if (touchStartX < 0 && touchEndX > touchStartX + 100) {
+        console.log("swipe open")
+        sidebar.classList.add('sidebar-active');
+      }
+
+      if (touchStartX > 0 && touchEndX < touchStartX - 100) {
+        console.log("swipe close")
+        sidebar.classList.remove('sidebar-active');
+      }
+    }
+
+  }
+
+
+  removeSwipeHandler() {
+    window.removeEventListener('touchstart', e => logTouchStart(e));
+    window.removeEventListener('touchend', e => logTouchEnd(e));
+  }
+
 }
 
 export default SideBar;

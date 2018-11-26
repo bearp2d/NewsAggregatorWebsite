@@ -1,0 +1,174 @@
+@media screen and (max-width: 600px) {
+  #main {
+    margin-left: 0px;
+  }
+
+  #sidebar {
+    position: absolute;
+    height: 100%;
+    max-width: 100%;
+
+    z-index: 1;
+
+    left: -100%;
+    transition: left 0.5s linear;
+  }
+
+  .sidebar-active {
+    left: 0px !important;
+    transition: left 0.5s linear;
+  }
+
+  #navbar {
+    height: 80px;
+  }
+
+
+
+  /* articles page */
+
+  #main-content > * {
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #main-content .article-li {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #main-content .article-li .img-box {
+    width: 100%;
+    height: auto;
+
+    padding-bottom: 10px;
+
+    margin: 0 auto;
+  }
+
+  #main-content .article-li header {
+    width: 100%;
+    height: auto;
+  }
+
+  /* sources page */
+
+  #sources-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #sources-ul .source-li {
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: auto;
+
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #sources-ul #feeds-dropdown {
+    width: 80%;
+
+    right: 10%;
+  }
+
+  #sources-ul #feeds-dropdown li {
+    width: 100%;
+  }
+
+  /* sidepanel modal: article popup*/
+
+  .modal-child-sidepanel {
+    width: 90%;
+    /* I have to make this shift because I originally shifted then
+      modal-child-sidepanel up 20px to solve a whitespace problem.
+      not sure how it arose */
+    height: calc(100% + 20px);
+  }
+
+  .modal-child-sidepanel #article-popup {
+    width: 100%;
+    height: 100%;
+  }
+
+  #article-popup > * {
+    width: 90%;
+  }
+
+  #article-popup #prev-button {
+    position: absolute;
+    left: 20%;
+    bottom: 20px;
+  }
+
+  #article-popup #next-button {
+    position: absolute;
+    right: 20%;
+    bottom: 20px;
+  }
+
+  /* sidepanel modal: new feed*/
+
+  #new-feed-form {
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #new-feed-form input {
+    max-width: calc(100% - 20px);
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  #navbar #user-bar #search-bar {
+    width: 20px;
+  }
+
+  #navbar #user-bar #search-bar:focus {
+    position: absolute;
+    z-index: 1;
+    top: 26px;
+    left: 40px;
+
+    max-width: 80%;
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  #navbar #user-bar {
+    margin: 0;
+    padding-right: 40px;
+  }
+
+  #navbar #user-bar #log-button {
+    background-image: url('<%= asset_path("logout.png") %> ');
+    background-size: 24px 29px;
+    background-position: left;
+    background-repeat: no-repeat;
+
+    width: 24px;
+    height: 29px;
+
+    /* Very hacky but IDK (basically pushing the orginal text out of frame)*/
+    text-indent: 20px;
+    overflow: hidden;
+  }
+
+}

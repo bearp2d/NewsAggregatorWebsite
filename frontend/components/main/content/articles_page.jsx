@@ -44,7 +44,7 @@ class ArticlesPage extends React.Component {
     return this.props.articles.map((article, idx) => {
       return (
           <ArticleElement article={article} index={idx}
-            saved={this.props.saved} key={idx}/>
+            saved={this.props.saved} key={idx} path={this.props.match.path}/>
       );
     });
   }

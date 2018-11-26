@@ -14,10 +14,6 @@
   overflow: hidden;
 
   font-size: 13px;
-
-  /* I'm putting this here so that in mobile mode it will transition
-     smoothly from off screen */
-  left: 0;
 }
 
 /* Feeds UL Header */

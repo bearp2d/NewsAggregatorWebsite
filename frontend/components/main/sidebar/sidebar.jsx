@@ -113,27 +113,25 @@ class SideBar extends React.Component {
     const logTouchStart = (e) => {
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
-
-      console.log(touchStartX);
     }
 
     const logTouchEnd = (e) => {
       touchEndX = e.changedTouches[0].screenX;
       touchEndY = e.changedTouches[0].screenY;
 
-      console.log(touchEndX);
-
       handleGesture();
     }
 
     const handleGesture = () => {
-      if (touchStartX < 0 && touchEndX > touchStartX + 100) {
-        console.log("swipe open")
+      if ((touchEndX > touchStartX + 100) &&
+          (Math.abs(touchStartY - touchEndY) < 50)) {
+
         sidebar.classList.add('sidebar-active');
       }
 
-      if (touchStartX > 0 && touchEndX < touchStartX - 100) {
-        console.log("swipe close")
+      if ((touchEndX < touchStartX - 100) &&
+          (Math.abs(touchStartY - touchEndY) < 50)) {
+
         sidebar.classList.remove('sidebar-active');
       }
     };

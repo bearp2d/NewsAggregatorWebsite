@@ -57,7 +57,7 @@ class ArticleElement extends React.Component {
           <br/>
           <span className="by-line">
             {(this.props.path !== "/subscription/:sourceId") ?
-              `${this.props.article.source.name + " "}` :
+              `${this.props.article.source.name + " /"}` :
               null
             }
             {this.props.article.author ?

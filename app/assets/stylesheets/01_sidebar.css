@@ -11,9 +11,27 @@
 
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 
   font-size: 13px;
+}
+
+#sidebar #pull-button {
+  visibility: hidden;
+
+  position: absolute;
+  right: -25px;
+  top: 50%;
+
+  height: 50px;
+  width: 50px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background-color: #d9d9d9;
 }
 
 /* Feeds UL Header */

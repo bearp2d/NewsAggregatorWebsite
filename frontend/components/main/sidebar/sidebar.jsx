@@ -93,6 +93,10 @@ class SideBar extends React.Component {
             <span className="title">Add Content</span>
           </div>
         </Link>
+
+        <div id="pull-button">
+          <img src={window.right_arrow} alt="right_arrow"/>
+        </div>
       </div>
     )
   }
@@ -113,16 +117,18 @@ class SideBar extends React.Component {
     const logTouchStart = (e) => {
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
+
+      console.log(touchStartX, touchStartY);
     }
 
     const logTouchEnd = (e) => {
       touchEndX = e.changedTouches[0].screenX;
       touchEndY = e.changedTouches[0].screenY;
 
-      handleGesture();
+      handleGesture(e);
     }
 
-    const handleGesture = () => {
+    const handleGesture = (e) => {
       if ((touchEndX > touchStartX + 100) &&
           (Math.abs(touchStartY - touchEndY) < 50)) {
 
@@ -134,9 +140,14 @@ class SideBar extends React.Component {
 
         sidebar.classList.remove('sidebar-active');
       }
+
+      if (touchStartY < 250 || touchEndY < 250) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: "smooth"});
+      }
     };
 
-    const removeActiveClass = (e) => {
+    const removeActiveClass = () => {
         sidebar.classList.remove('sidebar-active');
     };
   }

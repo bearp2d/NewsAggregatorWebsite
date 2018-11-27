@@ -33,7 +33,7 @@ class SearchBar extends React.Component {
             this.setState({placeholder: "Search"})}
           value={this.state.searchQuery}
           onChange={e => this.updateQuery(e)}
-          autocomplete="off"
+          autoComplete="off"
           >
         </input>
       </form>

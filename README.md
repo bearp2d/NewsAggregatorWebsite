@@ -58,7 +58,7 @@ componentDidMount() {
   }
 }
 ```
-Note that a synthetic event ('storage') is triggered. This is necessary for the individual article elements rendered on the articles page to immediately rerender once their 'read' state is changed (either from 'undread' to 'read' or vice versa). This signalling is accomplished through a window event listener.
+Note that a synthetic event ('storage') is triggered. This is necessary for the individual article elements rendered on the articles page to immediately rerender once their 'read' state is changed (either from 'unread' to 'read' or vice versa). This signalling is accomplished through a window event listener.
 
 ```javascript
 window.addEventListener('storage', () => {

@@ -10,7 +10,7 @@ their favorite news  sources into feeds and keep up to date with all of them in 
 ## Features
 Feedlet includes all of the basic functionality of any modern news aggregator with news source organization under topical *Feeds* and the option to save articles in a *Read Later* page. Feedlet has search functionality and highlighting to indicate articles that have already been read during that session. Feedlet also has infinite scroll so that users can continuously scan through new articles without refreshing the current page.  
 
-Feedlet is now _mobile-friendly_. The webpage was refactored to be responsive and now supports touch events for smartphones (pull up sidepanel and autoscroll to top).
+Feedlet is now **mobile-friendly**. The webpage was refactored to be responsive and now supports touch events for smartphones (pull up sidepanel and autoscroll to top).
 
 ## A few design features to note are:
 1. Feedlet has a demo user system that generates a new account for anyone who wants to demo the website for up to 12 hours.

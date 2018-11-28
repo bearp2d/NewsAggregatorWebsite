@@ -113,13 +113,11 @@ class SideBar extends React.Component {
     window.addEventListener('touchstart', e => logTouchStart(e));
     window.addEventListener('touchend', e => logTouchEnd(e));
 
-    window.addEventListener('scroll', (e) => removeActiveClass(e));
+    window.addEventListener('scroll', e => removeActiveClass(e));
 
     const logTouchStart = (e) => {
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
-
-      console.log(touchStartX, touchStartY);
     }
 
     const logTouchEnd = (e) => {
@@ -158,7 +156,7 @@ class SideBar extends React.Component {
     window.removeEventListener('touchstart', e => logTouchStart(e));
     window.removeEventListener('touchend', e => logTouchEnd(e));
 
-    window.addEventListener('onscroll', (e) => removeActiveClass(e));
+    window.addEventListener('onscroll', e => removeActiveClass(e));
   }
 
 }

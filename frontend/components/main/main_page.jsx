@@ -41,7 +41,7 @@ const MainPage = () => (
           <ProtectedRoute exact path="/discover" component={SourcesPage}/>
           <ProtectedRoute exact path="/trollolol" component={TrollComponent}/>
         </Switch>
-        <Link id="troll-link" to="/trollolol">Bonus Feature</Link>
+        <Link id="troll-link" to="/trollolol">New Feature</Link>
       </div>
     </div>
   </>

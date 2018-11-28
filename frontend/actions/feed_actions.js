@@ -3,6 +3,7 @@ import * as FeedApiUtil from '../util/feed_api_util';
 import { RECEIVE_ALL_ARTICLES, receiveAllArticles } from './news_api_actions';
 
 export const RECEIVE_NEW_FEED = "RECEIVE_NEW_FEED";
+export const REMOVE_FEED = "REMOVE_FEED";
 export const RECEIVE_ALL_FEEDS = "RECEIVE_ALL_FEEDS";
 export const RECEIVE_ALL_SOURCES = "RECEIVE_ALL_SOURCES";
 export const UPDATE_SOURCE_LIST = "UPDATE_SOURCE_LIST";
@@ -17,6 +18,11 @@ export const receiveAllFeeds = (feeds) => ({
 export const receiveNewFeed = (feed) => ({
   type: RECEIVE_NEW_FEED,
   feed: feed
+});
+
+export const removeFeed = (feedId) => ({
+  type: REMOVE_FEED,
+  feedId: feedId
 });
 
 export const receiveAllSources = (sources) => ({
@@ -48,6 +54,13 @@ export const fetchAllFeeds = () => (dispatch) => (
 export const createNewFeed = (feed_name) => (dispatch) => (
   FeedApiUtil.createNewFeed(feed_name).then(
     feed => dispatch(receiveNewFeed(feed)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
+export const deleteFeed = (feedId) => (dispatch) => (
+  FeedApiUtil.deleteFeed(feedId).then(
+    res => dispatch(removeFeed(feedId)),
     errors => dispatch(receiveErrors(errors))
   )
 );

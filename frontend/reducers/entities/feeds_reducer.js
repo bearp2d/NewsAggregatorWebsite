@@ -1,5 +1,7 @@
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
-import { RECEIVE_NEW_FEED, RECEIVE_ALL_FEEDS } from '../../actions/feed_actions';
+import { RECEIVE_NEW_FEED,
+  RECEIVE_ALL_FEEDS,
+  REMOVE_FEED } from '../../actions/feed_actions';
 import { merge } from 'lodash';
 
 const feedsReducer = (state = {}, action) => {
@@ -10,9 +12,13 @@ const feedsReducer = (state = {}, action) => {
     case RECEIVE_NEW_FEED:
       return merge(newState, {[action.feed.id]: action.feed});
 
+    case REMOVE_FEED:
+      delete newState[action.feedId];
+      return newState;
+
     case RECEIVE_ALL_FEEDS:
       return action.feeds;
-      
+
     default:
       return state;
   };

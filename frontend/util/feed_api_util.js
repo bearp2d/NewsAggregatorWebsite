@@ -6,6 +6,13 @@ export const createNewFeed = (feed_name) => {
   });
 };
 
+export const deleteFeed = (feed_id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/feeds/${feed_id}`
+  });
+};
+
 export const fetchAllFeeds = () => {
   return $.ajax({
     method: 'GET',

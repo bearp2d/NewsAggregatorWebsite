@@ -60,7 +60,8 @@ class SideBar extends React.Component {
 
           <header id="feeds-header" key={"feeds-header"}>
             <span>FEEDS</span>
-            <small className="img-box">
+            <small className="img-box"
+              onClick={() => this.props.openModal('delete-feed-form')}>
               <img src={window.settings_icon} alt="settings_icon"/>
             </small>
           </header>

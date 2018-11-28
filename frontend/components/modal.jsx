@@ -6,6 +6,7 @@ import LoginFormContainer from './landing/login_form_container';
 import SignupFormContainer from './landing/signup_form_container';
 
 import NewFeedForm from './main/sidebar/new_feed_form';
+import DeleteFeedForm from './main/sidebar/delete_feed_form';
 import ArticlePopupPage from './main/content/article_popup_page';
 
 function Modal({modal, optional_props, closeModal}) {
@@ -29,6 +30,12 @@ function Modal({modal, optional_props, closeModal}) {
       component = <NewFeedForm />;
       sidepanel = true;
       break;
+
+    case 'delete-feed-form':
+      component = <DeleteFeedForm />;
+      sidepanel = true;
+      break;
+
     case 'article-popup-page':
       component = <ArticlePopupPage article={optional_props.article}
                     elapsedTime={optional_props.elapsedTime}

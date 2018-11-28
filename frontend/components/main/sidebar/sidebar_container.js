@@ -14,7 +14,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchAllFeeds: () => dispatch(fetchAllFeeds()),
   fetchAllSources: () => dispatch(fetchAllSources()),
-  openModal: (modal) => dispatch(openModal(modal))
+  openModal: (modal, optional_props) =>
+    dispatch(openModal(modal, optional_props))
 });
 
 export default connect(

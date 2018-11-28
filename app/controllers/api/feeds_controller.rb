@@ -19,7 +19,7 @@ class Api::FeedsController < ApplicationController
   end
 
   def destroy
-    @feed = Feed.find(params[:feed_id])
+    @feed = Feed.find(params[:id])
 
     if @feed
       @feed.destroy

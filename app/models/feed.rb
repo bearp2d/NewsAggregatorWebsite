@@ -21,9 +21,11 @@ class Feed < ApplicationRecord
   has_many :feed_sources,
     primary_key: :id,
     foreign_key: :feed_id,
-    class_name: :FeedSource
+    class_name: :FeedSource,
+    dependent: :destroy
 
   has_many :news_sources,
     through: :feed_sources,
-    source: :news_source
+    source: :news_source,
+    dependent: :destroy
 end

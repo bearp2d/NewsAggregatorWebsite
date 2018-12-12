@@ -56,7 +56,8 @@ class ArticleElement extends React.Component {
           </span>
           <br/>
           <span className="by-line">
-            {(this.props.path !== "/subscription/:sourceId") ?
+            {(this.props.path !== "/subscription/:sourceId"
+              && this.props.article.source) ?
               `${this.props.article.source.name + " /"}` :
               null
             }

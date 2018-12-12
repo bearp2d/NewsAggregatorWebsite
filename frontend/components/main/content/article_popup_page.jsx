@@ -26,6 +26,9 @@ class ArticlePopupPage extends React.Component {
     this.props.article.url !== oldProps.article.url) {
       sessionStorage.setItem(this.props.article.url, true);
       window.dispatchEvent( new Event('storage') );
+
+      // In order to reset save/mark unread buttons between page switches
+      this.setState({savebuttonDisabled: false, unreadbuttonDisabled: false});
     }
   }
 

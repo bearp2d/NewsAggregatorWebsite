@@ -13,7 +13,7 @@ Feedlet includes all of the basic functionality of any modern news aggregator wi
 Feedlet is now **mobile-friendly**. The webpage was refactored to be responsive and now supports touch events for smartphones (pull up sidepanel and autoscroll to top).
 
 ## A few design features to note are:
-1. Feedlet has a demo user system that generates a new account for anyone who wants to demo the website for up to 12 hours.
+### 1. Feedlet has a demo user system that generates a new account for anyone who wants to demo the website for up to 12 hours.
 
 
 Every user that selects "Demo website without creating account" is generated random user credentials and logged in.
@@ -47,7 +47,7 @@ namespace :api do
 end
 ```
 
-2. Read data is not stored in the database.
+### 2. Read data is not stored in the database.
 
 Since read data (highlighting on the articles page showing articles that have already been clicked on) is only necessary for the immediate user experience and doesn't carry over from session to session it is stored as session cookies instead.
 
@@ -77,7 +77,7 @@ markUnread() {
 }
 ```
 
-3. All article pages have infinite scroll functionality
+### 3. All article pages have infinite scroll functionality
 
 Upon initial mounting of the ArticlesPage React Component 20 articles are queried from the third-party NewsAPI given the relevant article criteria for the current page (fed to the articles page by its various container components).
 
